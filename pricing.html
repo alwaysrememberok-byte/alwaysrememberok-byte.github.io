@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing – InstiQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --blue-light: #1A3A6B; --blue-pale: #E8F0FB; --blue: #1A3A6B; --ink: #1a1a2e; --muted: #6b7280; --border: rgba(0,0,0,0.08); }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; line-height: 1.7; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.97); position: sticky; top:0; z-index:100; }
+.logo a { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--blue); text-decoration: none; }
+.logo a span { color: var(--blue-light); }
+.nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-left: 1.5rem; }
+.page-hero { background: linear-gradient(160deg,#e8f0fb 0%,#fff 60%); padding: 4rem 2rem 3rem; text-align: center; }
+.page-hero .label { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue-light); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; color:var(--ink); letter-spacing:-0.5px; margin-bottom:0.75rem; }
+.page-hero p { color:var(--muted); font-size:1rem; max-width:520px; margin:0 auto; }
+.pricing-section { max-width: 1060px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+.trial-banner { background: var(--blue-pale); border: 1px solid var(--blue-light); border-radius: 12px; padding: 1rem 1.5rem; text-align: center; margin-bottom: 2.5rem; font-size: 0.95rem; color: var(--blue); font-weight: 500; }
+.plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.plan-card { background: #fff; border: 1.5px solid var(--border); border-radius: 20px; padding: 2rem; position: relative; }
+.plan-card.featured { border: 2px solid var(--blue-light); }
+.featured-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--blue-light); color: white; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 100px; white-space: nowrap; }
+.plan-name { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.plan-price { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 0.25rem; }
+.plan-price span { font-size: 1rem; font-weight: 500; color: var(--muted); }
+.plan-period { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.25rem; }
+.plan-limits { background: #f8fafb; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; }
+.plan-limits p { font-size: 0.85rem; color: var(--ink); margin-bottom: 0.25rem; }
+.plan-limits p:last-child { margin-bottom: 0; }
+.plan-limits strong { color: var(--blue); }
+.plan-features { list-style: none; margin-bottom: 1.75rem; }
+.plan-features li { font-size: 0.875rem; color: #374151; padding: 0.35rem 0; display: flex; align-items: flex-start; gap: 0.6rem; }
+.plan-features li::before { content: "✓"; color: var(--blue-light); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.plan-features li.no::before { content: "–"; color: #d1d5db; }
+.plan-features li.no { color: #9ca3af; }
+.plan-btn { display: block; text-align: center; padding: 0.85rem; border-radius: 10px; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1.5px solid var(--blue-light); color: var(--blue-light); }
+.plan-card.featured .plan-btn { background: var(--blue-light); color: white; border-color: var(--blue-light); }
+.currency-note { text-align: center; font-size: 0.82rem; color: var(--muted); margin-bottom: 3rem; }
+.faq-section { max-width: 720px; margin: 0 auto; }
+.faq-section h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--ink); margin-bottom: 1.5rem; }
+.faq { border-top: 1px solid var(--border); padding: 1.25rem 0; }
+.faq:last-child { border-bottom: 1px solid var(--border); }
+.faq h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+.faq p { font-size: 0.875rem; color: var(--muted); }
+footer { background:var(--blue); padding:2.5rem 2rem; }
+.footer-inner { max-width:1100px; margin:0 auto; text-align:center; }
+.footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.3rem; color:white; margin-bottom:1.25rem; }
+.footer-logo span { color:#4A90D9; }
+.footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.5rem; margin-bottom:1.25rem; }
+.footer-links a { font-size:0.8rem; color:rgba(255,255,255,0.7); text-decoration:none; }
+.footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.45); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="index.html">Insti<span>Q</span></a></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Pricing</div>
+  <h1>Simple, transparent pricing</h1>
+  <p>Start free. Upgrade when you're ready. No hidden fees, no setup charges.</p>
+</div>
+
+<div class="pricing-section">
+  <div class="trial-banner">
+    🎉 Every new institute gets a <strong>14-day free trial</strong> — full access, no payment required.
+  </div>
+
+  <div class="plans-grid">
+
+    <!-- BASIC -->
+    <div class="plan-card">
+      <div class="plan-name">Basic</div>
+      <div class="plan-price">1,499 <span>/ mo</span></div>
+      <div class="plan-period">Billed monthly &nbsp;·&nbsp; Local currency at checkout</div>
+      <div class="plan-limits">
+        <p>👥 Up to <strong>150 Students</strong></p>
+        <p>👨‍🏫 Up to <strong>25 Staff Members</strong></p>
+      </div>
+      <ul class="plan-features">
+        <li>Attendance tracking</li>
+        <li>Assignments &amp; submissions</li>
+        <li>Exam scheduling &amp; results</li>
+        <li>Push notifications</li>
+        <li>Student &amp; parent access</li>
+        <li>Multi-institute switching</li>
+        <li class="no">Faculty leave management</li>
+        <li class="no">Transport module</li>
+        <li class="no">Advanced analytics</li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="plan-btn">Start Free Trial</a>
+    </div>
+
+    <!-- STANDARD -->
+    <div class="plan-card featured">
+      <div class="featured-badge">Most Popular</div>
+      <div class="plan-name">Standard</div>
+      <div class="plan-price">2,499 <span>/ mo</span></div>
+      <div class="plan-period">Billed monthly &nbsp;·&nbsp; Local currency at checkout</div>
+      <div class="plan-limits">
+        <p>👥 Up to <strong>500 Students</strong></p>
+        <p>👨‍🏫 Up to <strong>50 Staff Members</strong></p>
+      </div>
+      <ul class="plan-features">
+        <li>Everything in Basic</li>
+        <li>Faculty leave management</li>
+        <li>Faculty attendance tracking</li>
+        <li>Transport module</li>
+        <li>Parent multi-child support</li>
+        <li>Priority support</li>
+        <li class="no">Advanced analytics</li>
+        <li class="no">Custom branding</li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="plan-btn">Start Free Trial</a>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-price">4,999 <span>/ mo</span></div>
+      <div class="plan-period">Billed monthly &nbsp;·&nbsp; Local currency at checkout</div>
+      <div class="plan-limits">
+        <p>👥 <strong>Unlimited Students</strong></p>
+        <p>👨‍🏫 <strong>Unlimited Staff Members</strong></p>
+      </div>
+      <ul class="plan-features">
+        <li>Everything in Standard</li>
+        <li>Advanced analytics &amp; reports</li>
+        <li>Custom branding options</li>
+        <li>Dedicated account support</li>
+        <li>Early access to new features</li>
+        <li>API access (coming soon)</li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="plan-btn">Start Free Trial</a>
+    </div>
+
+  </div>
+
+  <p class="currency-note">💱 Prices shown are indicative. Final amount is charged in your local currency at the prevailing exchange rate at the time of payment.</p>
+
+  <div class="faq-section">
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <h3>What happens after the free trial?</h3>
+      <p>After 14 days, your account is paused. You can choose a plan and continue with full access — no data is lost during the transition.</p>
+    </div>
+    <div class="faq">
+      <h3>Can I upgrade or downgrade my plan?</h3>
+      <p>Yes. Upgrades take effect immediately with a pro-rata charge. Downgrades take effect at the start of the next billing cycle.</p>
+    </div>
+    <div class="faq">
+      <h3>Is there an annual discount?</h3>
+      <p>Annual pricing options are coming soon. Contact us at support@instiq.in to discuss options for your institute.</p>
+    </div>
+    <div class="faq">
+      <h3>What payment methods are accepted?</h3>
+      <p>We accept major credit and debit cards, UPI, and net banking through our secure payment provider.</p>
+    </div>
+    <div class="faq">
+      <h3>Can I get a refund?</h3>
+      <p>Yes — see our <a href="refund-policy.html">Cancellation &amp; Refund Policy</a> for full details. First-time subscribers can request a refund within 7 days of their first payment.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Insti<span>Q</span></div>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="refund-policy.html">Cancellation &amp; Refunds</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 InstiQ by HBKR Technologies. All rights reserved. | instiq.in</p>
+  </div>
+</footer>
+</body>
+</html>

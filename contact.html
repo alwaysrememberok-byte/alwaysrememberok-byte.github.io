@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us – InstiQ</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --blue: #1A3A6B; --blue-mid: #2356A0; --blue-light: #4A90D9; --blue-pale: #E8F0FB; --ink: #1a1a2e; --muted: #6b7280; --border: rgba(0,0,0,0.08); }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; line-height: 1.7; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.97); position: sticky; top:0; z-index:100; }
+.logo a { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--blue); text-decoration: none; }
+.logo a span { color: var(--blue-light); }
+.nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-left: 1.5rem; }
+.nav-links a:hover { color: var(--blue-light); }
+.page-hero { background: linear-gradient(160deg,#e8f0fb 0%,#fff 60%); padding: 4rem 2rem 3rem; text-align: center; }
+.page-hero .label { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue-light); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; color:var(--ink); letter-spacing:-0.5px; margin-bottom:0.75rem; }
+.page-hero p { color:var(--muted); font-size:1rem; max-width:520px; margin:0 auto; }
+.contact-section { max-width: 960px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.contact-info h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
+.contact-info > p { font-size: 0.95rem; color: var(--muted); margin-bottom: 2rem; }
+.contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+.contact-icon { width: 42px; height: 42px; background: var(--blue-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.contact-item h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 0.2rem; }
+.contact-item p { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.1rem; }
+.contact-item a { color: var(--blue-light); text-decoration: none; font-size: 0.875rem; }
+.hours-box { background: #f4f7fc; border-radius: 12px; padding: 1.25rem; margin-top: 1.5rem; }
+.hours-box h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+.hours-row { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.4rem; }
+.hours-row .day { color: var(--muted); }
+.hours-row .time { color: var(--ink); font-weight: 500; }
+.contact-form-box { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 2rem; box-shadow: 0 4px 24px rgba(26,58,107,0.06); }
+.contact-form-box h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 1.5rem; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.7rem 0.9rem; border: 1.5px solid var(--border);
+  border-radius: 8px; font-size: 0.9rem; font-family: 'Inter', sans-serif;
+  color: var(--ink); background: #fafafa; outline: none; transition: border 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--blue-light); background: #fff; box-shadow: 0 0 0 3px rgba(74,144,217,0.1);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%; background: var(--blue); color: white; border: none;
+  padding: 0.9rem; border-radius: 10px; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.form-submit:hover:not(:disabled) { background: var(--blue-mid); }
+.form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+.form-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; text-align: center; }
+.alert { display: none; border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.875rem; font-weight: 500; }
+.alert-error { background: #fef2f2; border: 1px solid #fca5a5; color: #b91c1c; }
+.alert-success { background: var(--blue-pale); border: 1px solid var(--blue-light); color: var(--blue); text-align: center; padding: 2rem; }
+.alert-success h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 680px) { .contact-grid { grid-template-columns: 1fr; } }
+footer { background: var(--blue); padding:2.5rem 2rem; }
+.footer-inner { max-width:1100px; margin:0 auto; text-align:center; }
+.footer-logo { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.3rem; color:white; margin-bottom:1.25rem; }
+.footer-logo span { color: var(--blue-light); }
+.footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.5rem; margin-bottom:1.25rem; }
+.footer-links a { font-size:0.8rem; color:rgba(255,255,255,0.7); text-decoration:none; }
+.footer-links a:hover { color:white; }
+.footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.45); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="index.html">Insti<span>Q</span></a></div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Get in touch</div>
+  <h1>Contact Us</h1>
+  <p>We're here to help. Reach out for support, questions, or just to say hello.</p>
+</div>
+
+<div class="contact-section">
+  <div class="contact-grid">
+
+    <div class="contact-info">
+      <h2>How to reach us</h2>
+      <p>Our support team typically responds within 1 business day. For urgent issues, email is the fastest way to get help.</p>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <h3>Email Support</h3>
+          <a href="mailto:support@instiq.in">support@instiq.in</a>
+          <p>For general queries, billing, and technical support</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div>
+          <h3>Mobile App</h3>
+          <p>Available on Google Play</p>
+          <a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq">Download InstiQ</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div>
+          <h3>Website</h3>
+          <a href="https://instiq.in">instiq.in</a>
+        </div>
+      </div>
+      <div class="hours-box">
+        <h3>Support Hours</h3>
+        <div class="hours-row"><span class="day">Monday – Friday</span><span class="time">9:00 AM – 6:00 PM IST</span></div>
+        <div class="hours-row"><span class="day">Saturday</span><span class="time">10:00 AM – 4:00 PM IST</span></div>
+        <div class="hours-row"><span class="day">Sunday</span><span class="time">Email only</span></div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:0.75rem;">We typically respond within 1 business day.</p>
+      </div>
+    </div>
+
+    <div class="contact-form-box">
+      <h2>Send us a message</h2>
+
+      <div class="alert alert-error" id="errorMsg"></div>
+
+      <div id="formArea">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Rajesh Kumar" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="institute">Institute Name</label>
+          <input type="text" id="institute" name="institute" placeholder="e.g. Bright Future Academy" />
+        </div>
+        <div class="form-group">
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option value="">Select a topic</option>
+            <option>Technical Support</option>
+            <option>Billing &amp; Subscription</option>
+            <option>Account &amp; Access</option>
+            <option>Feature Request</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can help..."></textarea>
+        </div>
+        <button class="form-submit" id="submitBtn" onclick="handleSubmit()">
+          Send Message
+        </button>
+        <p class="form-note">Or email us at <a href="mailto:support@instiq.in" style="color:var(--blue-light);">support@instiq.in</a></p>
+      </div>
+
+      <div class="alert alert-success" id="successMsg">
+        <div style="font-size:2rem;margin-bottom:0.75rem;">✅</div>
+        <h3>Message Sent!</h3>
+        <p style="color:var(--blue-mid);font-size:0.9rem;">Thank you for reaching out. We'll get back to you at your email within 1 business day.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Insti<span>Q</span></div>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="refund-policy.html">Cancellation &amp; Refunds</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 InstiQ by HBKR Technologies. All rights reserved. | instiq.in</p>
+  </div>
+</footer>
+
+<script>
+async function handleSubmit() {
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const errorMsg  = document.getElementById('errorMsg');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Hide previous errors
+  errorMsg.style.display = 'none';
+
+  // Validate
+  if (!name) {
+    errorMsg.textContent = '⚠️ Please enter your name.';
+    errorMsg.style.display = 'block';
+    return;
+  }
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    errorMsg.textContent = '⚠️ Please enter a valid email address.';
+    errorMsg.style.display = 'block';
+    return;
+  }
+  if (!message) {
+    errorMsg.textContent = '⚠️ Please enter a message.';
+    errorMsg.style.display = 'block';
+    return;
+  }
+
+  // Show loading state
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+
+  // Collect all form data
+  const formData = {
+    name:      name,
+    email:     email,
+    institute: document.getElementById('institute').value.trim(),
+    topic:     document.getElementById('topic').value || 'General Enquiry',
+    message:   message
+  };
+
+  try {
+    const response = await fetch('https://formspree.io/f/xojoykaa', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      // Hide form, show success
+      document.getElementById('formArea').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    errorMsg.textContent = '⚠️ Something went wrong. Please email us directly at support@instiq.in';
+    errorMsg.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Send Message';
+  }
+}
+</script>
+</body>
+</html>

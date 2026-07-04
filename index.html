@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InstiQ – Smart Institute App</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue: #1A3A6B;
+    --blue-mid: #2356A0;
+    --blue-light: #4A90D9;
+    --blue-pale: #E8F0FB;
+    --gold: #F5A623;
+    --ink: #1a1a2e;
+    --muted: #6b7280;
+    --surface: #f4f7fc;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); z-index: 100; }
+  .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--blue); letter-spacing: -0.5px; }
+  .logo span { color: var(--blue-light); }
+  nav a { font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-left: 1.5rem; }
+  nav a:hover { color: var(--blue-light); }
+  .nav-cta { background: var(--blue); color: white !important; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 500; }
+  .nav-cta:hover { background: var(--blue-mid) !important; }
+  .hero { padding: 5rem 2rem 4rem; text-align: center; background: linear-gradient(160deg, #e8f0fb 0%, #ffffff 60%); }
+  .hero-badge { display: inline-block; background: var(--blue-pale); color: var(--blue); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: var(--ink); line-height: 1.15; letter-spacing: -1px; max-width: 780px; margin: 0 auto 1.25rem; }
+  .hero h1 em { color: var(--blue-light); font-style: normal; }
+  .hero p { font-size: 1.1rem; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--blue); color: white; padding: 0.85rem 2rem; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+  .btn-primary:hover { background: var(--blue-mid); }
+  .btn-secondary { background: white; color: var(--ink); padding: 0.85rem 2rem; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 0.95rem; border: 1.5px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--blue-light); color: var(--blue-light); }
+  .stats { display: flex; justify-content: center; gap: 3rem; padding: 2.5rem 2rem; background: var(--blue); flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; color: white; }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-top: 0.2rem; }
+  section { padding: 4rem 2rem; }
+  .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: var(--ink); letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+  .section-sub { color: var(--muted); font-size: 1rem; max-width: 520px; }
+  .section-head { max-width: 1100px; margin: 0 auto 3rem; }
+  .tabs-wrap { max-width: 1100px; margin: 0 auto; }
+  .tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .tab { padding: 0.6rem 1.4rem; border-radius: 100px; border: 1.5px solid var(--border); font-size: 0.875rem; font-weight: 500; cursor: pointer; background: white; color: var(--muted); transition: all 0.2s; }
+  .tab.active { background: var(--blue); color: white; border-color: var(--blue); }
+  .tab:hover:not(.active) { border-color: var(--blue-light); color: var(--blue-light); }
+  .institute-panel { display: none; }
+  .institute-panel.active { display: block; }
+  .institute-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+  .institute-info h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+  .institute-info p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .tag { background: var(--blue-pale); color: var(--blue); font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.85rem; border-radius: 100px; }
+  .institute-visual { background: var(--surface); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border); }
+  .visual-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 0.75rem; border-radius: 10px; margin-bottom: 0.5rem; background: white; border: 1px solid var(--border); font-size: 0.875rem; }
+  .visual-row:last-child { margin-bottom: 0; }
+  .visual-icon { font-size: 1.1rem; width: 28px; text-align: center; }
+  .visual-label { font-weight: 500; color: var(--ink); flex: 1; }
+  .visual-badge { font-size: 0.72rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 6px; background: var(--blue-pale); color: var(--blue); }
+  .check-list { list-style: none; }
+  .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--muted); margin-bottom: 0.6rem; }
+  .check-list li::before { content: "✓"; color: var(--blue-light); font-weight: 700; margin-top: 1px; flex-shrink: 0; }
+  .features-bg { background: var(--surface); }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
+  .feature-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+  .feature-card:hover { box-shadow: 0 4px 24px rgba(26,58,107,0.1); }
+  .feature-icon { width: 44px; height: 44px; background: var(--blue-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.3rem; }
+  .feature-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+  .feature-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .smarter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; }
+  .smarter-card { border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); background: white; }
+  .smarter-card .before { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #e24b4a; margin-bottom: 0.5rem; }
+  .smarter-card .after { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.5rem; }
+  .smarter-card p { font-size: 0.875rem; color: var(--muted); }
+  .smarter-card h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+  .arrow-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.5rem 0; }
+  .personas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; }
+  .persona-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+  .persona-avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; font-size: 1.4rem; }
+  .persona-card h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+  .persona-card p { font-size: 0.78rem; color: var(--muted); }
+  .steps { display: flex; flex-direction: column; gap: 2rem; max-width: 680px; margin: 0 auto; }
+  .step { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
+  .step p { font-size: 0.875rem; color: var(--muted); }
+  .cta-section { background: var(--blue); padding: 5rem 2rem; text-align: center; }
+  .cta-section h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 1rem; letter-spacing: -0.5px; }
+  .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1rem; }
+  .btn-white { background: white; color: var(--blue); padding: 0.9rem 2.2rem; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; display: inline-block; }
+  .btn-white:hover { background: var(--blue-pale); }
+  footer { background: var(--blue); border-top: 1px solid rgba(255,255,255,0.1); padding: 2.5rem 2rem; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+  .footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: white; margin-bottom: 1.25rem; }
+  .footer-logo span { color: var(--blue-light); }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-bottom: 1.25rem; }
+  .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.7); text-decoration: none; }
+  .footer-links a:hover { color: white; }
+  .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+  @media (max-width: 700px) { nav a:not(.nav-cta) { display: none; } .institute-grid { grid-template-columns: 1fr; } .stats { gap: 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Insti<span>Q</span></div>
+  <div>
+    <a href="#institute-types">How it fits</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="nav-cta">Get the App</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Now live on Google Play</div>
+  <h1>Run your institute <em>50% smarter</em> — with half the manual work</h1>
+  <p>InstiQ adapts to your institute type — school, coaching center, or college. One app, zero paperwork, total control.</p>
+  <div class="hero-btns">
+    <a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="btn-primary">📲 Download Free</a>
+    <a href="#institute-types" class="btn-secondary">See how it fits your institute →</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Institute Types Supported</div></div>
+  <div class="stat"><div class="stat-num">5</div><div class="stat-label">User Roles</div></div>
+  <div class="stat"><div class="stat-num">50%</div><div class="stat-label">Less Manual Work</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Cloud-based</div></div>
+</div>
+
+<section id="institute-types">
+  <div class="section-head">
+    <div class="section-label">Built for your setup</div>
+    <div class="section-title">InstiQ adapts to how you work</div>
+    <div class="section-sub">Whether you run a school, a coaching center, or a college — InstiQ speaks your language and fits your structure.</div>
+  </div>
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('school', this)">🏫 School</div>
+      <div class="tab" onclick="switchTab('coaching', this)">📖 Coaching Center</div>
+      <div class="tab" onclick="switchTab('college', this)">🎓 College / University</div>
+    </div>
+    <div class="institute-panel active" id="panel-school">
+      <div class="institute-grid">
+        <div class="institute-info">
+          <h3>Built for Schools</h3>
+          <p>InstiQ maps directly to your school's structure — from standards and sections all the way down to individual subjects and class teachers.</p>
+          <div class="tag-list"><span class="tag">Standards (Grades)</span><span class="tag">Sections (A, B, C...)</span><span class="tag">Subjects</span><span class="tag">Class Teachers</span><span class="tag">Timetable</span><span class="tag">Parent Alerts</span></div>
+          <ul class="check-list">
+            <li>Mark attendance class-wise and section-wise every day</li>
+            <li>Assign homework and track submissions per section</li>
+            <li>Notify parents of attendance, results, and announcements</li>
+            <li>Conduct exams and publish report cards digitally</li>
+          </ul>
+        </div>
+        <div class="institute-visual">
+          <div class="visual-row"><span class="visual-icon">🏫</span><span class="visual-label">Grade 10 — Section A</span><span class="visual-badge">32 Students</span></div>
+          <div class="visual-row"><span class="visual-icon">📚</span><span class="visual-label">Mathematics</span><span class="visual-badge">Mr. Sharma</span></div>
+          <div class="visual-row"><span class="visual-icon">✅</span><span class="visual-label">Today's Attendance</span><span class="visual-badge">29 / 32</span></div>
+          <div class="visual-row"><span class="visual-icon">📝</span><span class="visual-label">Assignment Due</span><span class="visual-badge">Tomorrow</span></div>
+          <div class="visual-row"><span class="visual-icon">🔔</span><span class="visual-label">Parent Notification Sent</span><span class="visual-badge">✓ Done</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="institute-panel" id="panel-coaching">
+      <div class="institute-grid">
+        <div class="institute-info">
+          <h3>Built for Coaching Centers</h3>
+          <p>Manage multiple batches, programs, and flexible schedules — all in one dashboard.</p>
+          <div class="tag-list"><span class="tag">Programs</span><span class="tag">Batches / Groups</span><span class="tag">Subjects</span><span class="tag">Faculty Allocation</span><span class="tag">Test Series</span><span class="tag">Fee Management</span></div>
+          <ul class="check-list">
+            <li>Run multiple programs side by side</li>
+            <li>Allocate faculty to specific batches and subjects</li>
+            <li>Schedule tests and publish results instantly</li>
+            <li>Students can enroll and switch between institutes easily</li>
+          </ul>
+        </div>
+        <div class="institute-visual">
+          <div class="visual-row"><span class="visual-icon">📖</span><span class="visual-label">Advanced Batch A</span><span class="visual-badge">45 Students</span></div>
+          <div class="visual-row"><span class="visual-icon">⚗️</span><span class="visual-label">Chemistry</span><span class="visual-badge">Dr. Patel</span></div>
+          <div class="visual-row"><span class="visual-icon">✅</span><span class="visual-label">Attendance Today</span><span class="visual-badge">41 / 45</span></div>
+          <div class="visual-row"><span class="visual-icon">📝</span><span class="visual-label">Weekly Test Scheduled</span><span class="visual-badge">Saturday</span></div>
+          <div class="visual-row"><span class="visual-icon">💳</span><span class="visual-label">Subscription Active</span><span class="visual-badge">Premium</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="institute-panel" id="panel-college">
+      <div class="institute-grid">
+        <div class="institute-info">
+          <h3>Built for Colleges &amp; Universities</h3>
+          <p>Handle departments, semesters, and elective subjects across multiple faculties — with role-based access for every staff member.</p>
+          <div class="tag-list"><span class="tag">Departments</span><span class="tag">Semesters</span><span class="tag">Courses / Subjects</span><span class="tag">Faculty Roles</span><span class="tag">Electives</span><span class="tag">Exam Results</span></div>
+          <ul class="check-list">
+            <li>Organize by department, year, and semester automatically</li>
+            <li>Manage elective subject enrollments per student</li>
+            <li>Faculty upload marks; admin publishes results in one click</li>
+            <li>Students and parents track progress from the same app</li>
+          </ul>
+        </div>
+        <div class="institute-visual">
+          <div class="visual-row"><span class="visual-icon">🎓</span><span class="visual-label">CS Dept — Sem 5</span><span class="visual-badge">120 Students</span></div>
+          <div class="visual-row"><span class="visual-icon">💻</span><span class="visual-label">Data Structures</span><span class="visual-badge">Prof. Singh</span></div>
+          <div class="visual-row"><span class="visual-icon">✅</span><span class="visual-label">Attendance This Week</span><span class="visual-badge">87%</span></div>
+          <div class="visual-row"><span class="visual-icon">📊</span><span class="visual-label">Mid-Sem Results</span><span class="visual-badge">Published</span></div>
+          <div class="visual-row"><span class="visual-icon">📋</span><span class="visual-label">Elective Enrollment</span><span class="visual-badge">Open</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features-bg">
+  <div class="section-head">
+    <div class="section-label">The InstiQ difference</div>
+    <div class="section-title">Cut the manual work in half</div>
+    <div class="section-sub">Everything your admin team does on paper or WhatsApp — done automatically inside InstiQ.</div>
+  </div>
+  <div class="smarter-grid">
+    <div class="smarter-card"><div class="before">Before InstiQ</div><h4>Attendance in registers</h4><div class="arrow-row"><span>📒</span><span style="color:var(--blue-light);font-weight:700;">→</span><span>📱</span></div><div class="after">With InstiQ</div><p>Mark on mobile, auto-reports generated, parents notified instantly.</p></div>
+    <div class="smarter-card"><div class="before">Before InstiQ</div><h4>WhatsApp for assignments</h4><div class="arrow-row"><span>💬</span><span style="color:var(--blue-light);font-weight:700;">→</span><span>📲</span></div><div class="after">With InstiQ</div><p>Assignments posted in-app with due dates, reminders, and submission tracking.</p></div>
+    <div class="smarter-card"><div class="before">Before InstiQ</div><h4>Manual fee follow-ups</h4><div class="arrow-row"><span>📞</span><span style="color:var(--blue-light);font-weight:700;">→</span><span>💳</span></div><div class="after">With InstiQ</div><p>Subscriptions and payments handled automatically with online billing.</p></div>
+    <div class="smarter-card"><div class="before">Before InstiQ</div><h4>Results on notice boards</h4><div class="arrow-row"><span>📌</span><span style="color:var(--blue-light);font-weight:700;">→</span><span>📊</span></div><div class="after">With InstiQ</div><p>Results published digitally. Students and parents see them the moment they're out.</p></div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="section-head">
+    <div class="section-label">What's inside</div>
+    <div class="section-title">Every tool your institute needs</div>
+    <div class="section-sub">From enrollment to exam results — InstiQ covers the full academic lifecycle.</div>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">✅</div><h3>Attendance Tracking</h3><p>Mark and monitor attendance by class, batch, or session. Instant reports for any date range.</p></div>
+    <div class="feature-card"><div class="feature-icon">📝</div><h3>Assignments &amp; Exams</h3><p>Create assignments with due dates, auto-complete on expiry, and track each student's submission.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔔</div><h3>Smart Notifications</h3><p>Send targeted announcements to specific groups or the entire institute — parents included.</p></div>
+    <div class="feature-card"><div class="feature-icon">💳</div><h3>Billing &amp; Subscriptions</h3><p>Integrated online billing with Basic, Standard, and Premium plans. Automatic trial and expiry handling.</p></div>
+    <div class="feature-card"><div class="feature-icon">🔄</div><h3>Multi-Institute Switching</h3><p>Students and teachers can belong to multiple institutes and switch between them in one tap.</p></div>
+    <div class="feature-card"><div class="feature-icon">👨‍👩‍👧</div><h3>Parent Access</h3><p>Parents monitor attendance, assignments, and results for multiple children from a single account.</p></div>
+    <div class="feature-card"><div class="feature-icon">🚌</div><h3>Transport Management</h3><p>Manage vehicles, routes, and student transport assignments from the admin dashboard.</p></div>
+    <div class="feature-card"><div class="feature-icon">👨‍🏫</div><h3>Faculty Leave &amp; Attendance</h3><p>Teachers apply for leave in-app. Admins approve, track balances, and generate reports automatically.</p></div>
+  </div>
+</section>
+
+<section class="features-bg">
+  <div class="section-head">
+    <div class="section-label">Who uses InstiQ</div>
+    <div class="section-title">One app, every role covered</div>
+    <div class="section-sub">Five distinct roles with tailored dashboards — everyone sees exactly what they need.</div>
+  </div>
+  <div class="personas-grid">
+    <div class="persona-card"><div class="persona-avatar" style="background:#E6F1FB;">👑</div><h4>Super Admin</h4><p>Institute-wide management, staff, and billing control</p></div>
+    <div class="persona-card"><div class="persona-avatar" style="background:#EBF3FD;">🎓</div><h4>Academic Admin</h4><p>Structures, subjects, exams, timetables, and schedules</p></div>
+    <div class="persona-card"><div class="persona-avatar" style="background:#EEEDFE;">👨‍🏫</div><h4>Teacher</h4><p>Attendance, assignments, results, and leave requests</p></div>
+    <div class="persona-card"><div class="persona-avatar" style="background:#EAF3DE;">🧑‍🎓</div><h4>Student</h4><p>Timetable, results, assignments, and notifications</p></div>
+    <div class="persona-card"><div class="persona-avatar" style="background:#FBEAF0;">👪</div><h4>Parent</h4><p>Track children's progress, attendance, and results</p></div>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="section-head">
+    <div class="section-label">How it works</div>
+    <div class="section-title">Live in minutes, not months</div>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div><h4>Download &amp; Register</h4><p>Get InstiQ from Google Play. Set up your institute account in under 5 minutes.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h4>Choose Your Institute Type</h4><p>School, coaching center, or college — InstiQ sets up the right structure for you automatically.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div><h4>Add Staff &amp; Enroll Students</h4><p>Students request enrollment, admins approve — no manual data entry or spreadsheets.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div><h4>Go Live</h4><p>Start marking attendance, assigning work, and sending notifications from day one.</p></div></div>
+  </div>
+</section>
+
+<section class="cta-section" id="download">
+  <h2>Ready to make your institute 50% smarter?</h2>
+  <p>Free trial included. No setup fees. Works for schools, coaching centers, and colleges worldwide.</p>
+  <a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="btn-white">📲 Download InstiQ Free</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Insti<span>Q</span></div>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="refund-policy.html">Cancellation &amp; Refunds</a>
+      <a href="shipping-policy.html">Shipping Policy</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="footer-copy">&copy; 2026 InstiQ by HBKR Technologies. All rights reserved. | instiq.in</p>
+  </div>
+</footer>
+
+<script>
+function switchTab(type, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.institute-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + type).classList.add('active');
+}
+</script>
+</body>
+</html>
