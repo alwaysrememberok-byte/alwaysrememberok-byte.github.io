@@ -7,13 +7,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --blue-light: #1A3A6B; --blue-pale: #E8F0FB; --blue: #1A3A6B; --ink: #1a1a2e; --muted: #6b7280; --surface: #f8fafb; --white: #ffffff; --border: rgba(0,0,0,0.08); }
-body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--white); line-height: 1.7; }
+:root { --blue-light: #1A3A6B; --blue-pale: #E8F0FB; --blue: #1A3A6B; --ink: #1a1a2e; --muted: #6b7280; --border: rgba(0,0,0,0.08); }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; line-height: 1.7; }
 nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.97); position: sticky; top:0; z-index:100; }
 .logo a { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--blue); text-decoration: none; }
 .logo a span { color: var(--blue-light); }
 .nav-links a { font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-left: 1.5rem; }
-.nav-links a:hover { color: var(--blue-light); }
 .page-hero { background: linear-gradient(160deg,#e8f0fb 0%,#fff 60%); padding: 4rem 2rem 3rem; text-align: center; }
 .page-hero .label { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--blue-light); margin-bottom:0.75rem; }
 .page-hero h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:800; color:var(--ink); letter-spacing:-0.5px; margin-bottom:0.75rem; }
@@ -32,7 +31,6 @@ footer { background:var(--blue); padding:2.5rem 2rem; }
 .footer-logo span { color:#4A90D9; }
 .footer-links { display:flex; flex-wrap:wrap; justify-content:center; gap:0.5rem 1.5rem; margin-bottom:1.25rem; }
 .footer-links a { font-size:0.8rem; color:rgba(255,255,255,0.7); text-decoration:none; }
-.footer-links a:hover { color:white; }
 .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.45); }
 </style>
 </head>
@@ -50,71 +48,84 @@ footer { background:var(--blue); padding:2.5rem 2rem; }
 <div class="page-hero">
   <div class="label">Legal</div>
   <h1>Privacy Policy</h1>
-  <p>How InstiQ collects, uses, and protects your information.</p>
+  <p>What InstiQ collects, why, and what your rights are.</p>
 </div>
 
 <div class="content">
-  <p class="updated">Last updated: June 2025</p>
+  <p class="updated">Last updated: 20 September 2026</p>
 
-  <h2>1. Who We Are</h2>
-  <p>InstiQ ("we", "our", or "us") is a cloud-based institute management platform available via the InstiQ mobile application. We are committed to protecting your personal information and your right to privacy.</p>
+  <h2>1. About this app</h2>
+  <p>InstiQ — Smart Institute App is made and run by HKBR Enterprise Private Limited ("we", "us", "our"), Bhopal, Madhya Pradesh, India. Schools, colleges and coaching institutes in India use it to run their academic work.</p>
+  <p><strong>Who is responsible for your data:</strong> your institute decides what is collected about you and why. Under the Digital Personal Data Protection Act, 2023 your institute is the Data Fiduciary, and we handle that data for it as its Data Processor. For the account of the person who registers an institute, and for subscription and payment records, we are the Data Fiduciary ourselves.</p>
+  <p>For anything in your own academic record, ask your institute first. For anything else, write to us at <a href="mailto:support@instiq.in">support@instiq.in</a>.</p>
 
-  <h2>2. Information We Collect</h2>
-  <p>We collect the following categories of information when you use InstiQ:</p>
+  <h2>2. Information we collect</h2>
+  <p><strong>About you:</strong> name, email address, phone number, and the role you hold (student, parent, teacher, academic admin, owner, receptionist, transport manager, driver); profile photograph if one is added; date of birth, address, gender and family details where your institute asks for them.</p>
+  <p><strong>Your academic record:</strong> roll number, class, section, batch and subjects; attendance, marks and results, assignments and what you submit, exam and holiday schedules, class diary entries, events and your replies; leave applications and staff attendance, for staff.</p>
+  <p><strong>Fees and payments:</strong> fee amounts, what is due and what is paid, receipt and reference numbers. Card, UPI and bank details never reach us — the payment is completed inside Razorpay.</p>
+  <p><strong>Transport, when your institute uses it:</strong> bus, route, stop, pick-up and drop times, and whether the bus ran today. For a driver or bus attendant: licence and identity details, photographs of those documents, phone number, and vehicle papers. We do not track the live location of a bus, a child or any user.</p>
+  <p><strong>Video lectures, when your institute uses them:</strong> the videos an institute uploads, and which account watched which video, so that access and storage can be counted.</p>
+  <p><strong>Enquiries at the front desk:</strong> if you ask an institute about admission, the institute records your name, phone number, what you asked about and what was agreed — even if you never sign up.</p>
+  <p><strong>Files you upload:</strong> photographs and documents attached to a record.</p>
+  <p><strong>Technical information:</strong> your sign-in token, the notification token used to reach your device, the app version, and basic performance information used to find faults.</p>
+  <p>We do not collect your contacts, your location, your calendar or your browsing history, and there is no advertising in InstiQ.</p>
+
+  <h2>3. How we use it</h2>
+  <p>We use what we collect only to run the academic work of your institute; to show each person only what their role allows; to send you notifications from your institute; to confirm payments and keep subscription and usage records; and to keep the app secure and fix faults.</p>
+  <p>We do not sell your data. We do not use it for advertising, and we do not give it to anyone for their own marketing. We do not build profiles of users or of children, and we do not use your data to train any artificial-intelligence model.</p>
+
+  <h2>4. Where your data is stored, and how it is protected</h2>
+  <p>Records are stored in Google Cloud Firestore, in Google’s India region (asia-south2, Delhi). Photographs and documents are stored in Firebase Storage in the same Google Cloud account. Video lectures are stored and delivered by Bunny.net.</p>
+  <p>Some background jobs — signing in, subscription checks, notifications, reports — run as Google Cloud Functions in Google’s us-central1 region in the United States. They read only what that job needs and keep no copy of their own.</p>
+  <p>Data is encrypted while it travels (TLS) and while it is stored. Access is limited by role and by institute, enforced by the database itself (Firestore Security Rules) and not only by the app. Staff accounts can turn on a second step at sign-in. Passwords are held by Firebase Authentication and nobody at InstiQ can see them.</p>
+
+  <h2>5. Who can see your data</h2>
   <ul>
-    <li><strong>Account information:</strong> Name, email address, phone number, and role (admin, teacher, student, or parent) provided during registration.</li>
-    <li><strong>Institute information:</strong> Institute name, type, address, and configuration details entered by administrators.</li>
-    <li><strong>Academic data:</strong> Attendance records, assignment submissions, exam results, and timetable data created within the app.</li>
-    <li><strong>Payment information:</strong> Subscription plan selections and billing records. Payment transactions are processed by our payment provider and we do not store full card or bank details.</li>
-    <li><strong>Device and usage data:</strong> Device type, operating system, app version, and usage logs collected automatically to improve service quality.</li>
+    <li><strong>Student</strong> — own attendance, marks, assignments, exam schedule, class diary, fees and bus.</li>
+    <li><strong>Parent</strong> — their child’s attendance, marks, exam schedule, diary, fees and bus.</li>
+    <li><strong>Teacher</strong> — students in their allocated classes, own assignments, own leave and attendance.</li>
+    <li><strong>Receptionist</strong> — enquiries and fee quotes. <strong>Transport manager</strong> — routes, drivers and riders. <strong>Driver</strong> — only their own bus, its stops and riders.</li>
+    <li><strong>Academic Admin and Owner</strong> — all data within their own institute.</li>
+    <li><strong>Implementation Admin</strong> (InstiQ staff) — across institutes, for support and billing.</li>
   </ul>
 
-  <h2>3. How We Use Your Information</h2>
-  <p>We use the information we collect to:</p>
+  <h2>6. Sharing with others</h2>
+  <p>We do not sell or trade your data. We share it only with the services that make the app work: Google (Firebase and Google Cloud), Bunny.net (video delivery, servers outside India), Razorpay (payments, India), the staff of your own institute, and the law if a court or lawful order requires it.</p>
+  <p>Apart from Bunny.net and the Google background jobs described above, your data stays in India. We do not transfer personal data to any country the Government of India has restricted.</p>
+
+  <h2>7. How long we keep it, and deleting your account</h2>
+  <p>While your institute uses InstiQ, its records are kept so that the institute can work with them.</p>
+  <p><strong>Deleting your account:</strong> sign in, and on your dashboard, below "Log out", tap "Delete my account" and confirm — or write to <a href="mailto:support@instiq.in">support@instiq.in</a> from the address you sign in with, subject "Delete my account". Your sign-in, profile and personal details are deleted within 30 days. School records such as attendance, marks and fee receipts stay with the institute without your name and contact details attached.</p>
+  <p>If an institute stops using InstiQ, its data is kept for 90 days and then deleted. An institute that writes to us within those 90 days saying it means to come back gets one extension of 90 days — six months in total.</p>
+
+  <h2>8. Children’s data</h2>
+  <p>A child’s account is created by their institute after enrolment — a child does not sign up alone. The parent is given their own account.</p>
+  <p>Under section 9 of the DPDP Act, 2023 a child’s data normally needs verifiable parental consent. The DPDP Rules, 2025 (Fourth Schedule) allow an educational institution, and a transport service for children, to process a child’s data for education, school activity and the child’s safety — which is all InstiQ is used for. Your institute is responsible for the consent it takes from parents at admission.</p>
+  <p>We never show advertising, never track a child’s behaviour, never profile children, and never share a child’s data for marketing.</p>
+
+  <h2>9. Your rights under Indian law (DPDP Act, 2023)</h2>
   <ul>
-    <li>Provide, operate, and maintain the InstiQ platform</li>
-    <li>Process payments and manage subscription billing</li>
-    <li>Send notifications, alerts, and academic updates within the app</li>
-    <li>Respond to support requests and resolve technical issues</li>
-    <li>Improve app features and user experience through usage analytics</li>
-    <li>Comply with applicable legal obligations</li>
+    <li>know what data about you is held, and how it is used and shared;</li>
+    <li>ask for it to be corrected, completed or updated;</li>
+    <li>ask for it to be erased;</li>
+    <li>withdraw consent as easily as you gave it;</li>
+    <li>nominate another person to exercise your rights if you die or cannot act for yourself;</li>
+    <li>have a grievance answered, and complain to the Data Protection Board of India if we do not answer.</li>
   </ul>
+  <p>For anything in your academic record, ask your institute’s admin. For anything else, write to <a href="mailto:support@instiq.in">support@instiq.in</a> from the email address you sign in with. We reply within 7 days and complete the request within 30 days.</p>
 
-  <h2>4. How We Share Your Information</h2>
-  <p>We do not sell, rent, or trade your personal information. We may share your data only in the following circumstances:</p>
-  <ul>
-    <li><strong>Within your institute:</strong> Admins can view data for users enrolled in their institute. Teachers see data for their assigned classes. Parents see data for their linked children only.</li>
-    <li><strong>Service providers:</strong> We use Firebase (Google) for database and authentication, and a payment processor for billing. These providers are bound by data processing agreements.</li>
-    <li><strong>Legal requirements:</strong> We may disclose information if required to do so by law or in response to valid legal process.</li>
-  </ul>
+  <h2>10. Cookies, trackers and advertising</h2>
+  <p>InstiQ shows no advertising, uses no advertising network, and does not read your advertising ID.</p>
+  <p>The app keeps a sign-in token on your device so that you stay signed in, and a notification token so that your institute can reach you. Google’s Firebase Performance Monitoring measures how quickly screens and requests finish, to find faults. Some screens use Google Fonts. Video lectures are played from Bunny.net. This website may use essential cookies only.</p>
 
-  <h2>5. Data Retention</h2>
-  <p>We retain your data for as long as your account is active or as needed to provide services. If you request account deletion, we will delete your personal data within 30 days, except where retention is required by law.</p>
+  <h2>11. Changes to this policy</h2>
+  <p>We may change this policy. The date at the top shows when it last changed. If a change matters to you, we will say so in the app before it takes effect.</p>
 
-  <h2>6. Data Security</h2>
-  <p>We implement industry-standard security measures including encrypted data transmission (HTTPS/TLS), Firebase authentication with secure token management, and role-based access controls so users only access data relevant to their role.</p>
-
-  <h2>7. Children's Privacy</h2>
-  <p>InstiQ is used in educational settings and may contain data about students who are minors. Student data is accessible only to authorised administrators, teachers, and parents linked to that student. We do not use student data for advertising or any purpose unrelated to providing the educational service.</p>
-
-  <h2>8. Your Rights</h2>
-  <p>Depending on your location, you may have the right to:</p>
-  <ul>
-    <li>Access the personal data we hold about you</li>
-    <li>Request correction of inaccurate data</li>
-    <li>Request deletion of your account and associated data</li>
-    <li>Object to processing of your data</li>
-  </ul>
-  <p>To exercise any of these rights, contact us at <a href="mailto:support@instiq.in">support@instiq.in</a>.</p>
-
-  <h2>9. Cookies</h2>
-  <p>The InstiQ mobile app does not use cookies. Our website (instiq.in) may use essential cookies for basic functionality only.</p>
-
-  <h2>10. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. We will notify users of significant changes via the app or email. Continued use of InstiQ after changes constitutes acceptance of the updated policy.</p>
-
-  <h2>11. Contact Us</h2>
-  <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:support@instiq.in">support@instiq.in</a> or visit our <a href="contact.html">Contact page</a>.</p>
+  <h2>12. Contact us and Grievance Officer</h2>
+  <p>HKBR Enterprise Private Limited — InstiQ — Smart Institute App, Bhopal, Madhya Pradesh, India. Email: <a href="mailto:support@instiq.in">support@instiq.in</a>.</p>
+  <p><strong>Grievance Officer</strong> — write to <a href="mailto:support@instiq.in">support@instiq.in</a> with "DPDP" in the subject. We acknowledge within 7 days and answer within 30 days.</p>
+  <p>If personal data is ever exposed by a fault or an attack, we tell the people affected and the Data Protection Board of India, as the DPDP Rules require.</p>
+  <p>In the app: <a href="https://app.instiq.in/privacyPolicy">Privacy Policy</a> · <a href="https://app.instiq.in/delete-account">Delete your account</a> · <a href="https://app.instiq.in/terms">Terms &amp; Conditions</a></p>
 </div>
 
 <footer>
@@ -128,9 +139,8 @@ footer { background:var(--blue); padding:2.5rem 2rem; }
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact Us</a>
     </div>
-    <p class="footer-copy">&copy; 2026 InstiQ by HBKR Technologies. All rights reserved. | instiq.in</p>
+    <p class="footer-copy">&copy; 2026 InstiQ by HKBR Enterprise Private Limited. All rights reserved. | instiq.in</p>
   </div>
 </footer>
-
 </body>
 </html>
