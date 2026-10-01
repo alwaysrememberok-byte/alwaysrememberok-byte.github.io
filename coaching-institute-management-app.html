@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coaching Institute Management App — Front Desk &amp; Tests</title>
+<meta name="description" content="Coaching institute management app: courses and batches, front desk inquiries and follow-ups, fee quotes, tests, homework and Video Lectures. Free trial.">
+<link rel="canonical" href="https://instiq.in/coaching-institute-management-app.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="InstiQ">
+<meta property="og:title" content="Coaching Institute Management App — Front Desk &amp; Tests">
+<meta property="og:description" content="Coaching institute management app: courses and batches, front desk inquiries and follow-ups, fee quotes, tests, homework and Video Lectures. Free trial.">
+<meta property="og:url" content="https://instiq.in/coaching-institute-management-app.html">
+<meta property="og:image" content="https://instiq.in/screens/web-school-dashboard.jpg">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Coaching Institute Management App — Front Desk &amp; Tests">
+<meta name="twitter:description" content="Coaching institute management app: courses and batches, front desk inquiries and follow-ups, fee quotes, tests, homework and Video Lectures. Free trial.">
+<meta name="twitter:image" content="https://instiq.in/screens/web-school-dashboard.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can the front desk track inquiries and follow-ups?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The front desk logs walk-ins and inquiries, gives fee quotes per batch, shows follow-ups due and overdue, and converts an inquiry into an admission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I share recorded lectures with only one batch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with the Video Lectures add-on. Lectures go to the right batch only, the student's name moves over the video, screenshots and screen recording are blocked on Android, and one device plays at a time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do Video Lectures cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "₹899 a month, plus usage credit topped up from ₹100: storage is ₹3 per GB per month and streaming is ₹1 per GB."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can one owner run several coaching centres?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. An owner can run several institutes, and one person can belong to several institutes and switch in one tap."
+      }
+    }
+  ]
+}
+</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+--blue: #1A3A6B;
+--blue-mid: #2356A0;
+--blue-light: #4A90D9;
+--blue-pale: #E8F0FB;
+--gold: #F5A623;
+--ink: #1a1a2e;
+--muted: #6b7280;
+--surface: #f4f7fc;
+--white: #ffffff;
+--border: rgba(0,0,0,0.08);
+--radius: 12px;
+--radius-lg: 20px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; }
+nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); z-index: 100; }
+.logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--blue); letter-spacing: -0.5px; text-decoration: none; }
+.logo span { color: var(--blue-light); }
+nav a { font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-left: 1.5rem; }
+nav a:hover { color: var(--blue-light); }
+.nav-cta { background: var(--blue); color: white !important; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 500; }
+.nav-cta:hover { background: var(--blue-mid) !important; }
+.hero { padding: 5rem 2rem 4rem; text-align: center; background: linear-gradient(160deg, #e8f0fb 0%, #ffffff 60%); }
+.hero-badge { display: inline-block; background: var(--blue-pale); color: var(--blue); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+.hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: var(--ink); line-height: 1.15; letter-spacing: -1px; max-width: 780px; margin: 0 auto 1.25rem; }
+.hero h1 em { color: var(--blue-light); font-style: normal; }
+.hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 2.5rem; }
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary { background: var(--blue); color: white; padding: 0.85rem 2rem; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+.btn-primary:hover { background: var(--blue-mid); }
+.btn-secondary { background: white; color: var(--ink); padding: 0.85rem 2rem; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 0.95rem; border: 1.5px solid var(--border); }
+.btn-secondary:hover { border-color: var(--blue-light); color: var(--blue-light); }
+.stats { display: flex; justify-content: center; gap: 3rem; padding: 2.5rem 2rem; background: var(--blue); flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; color: white; }
+.stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-top: 0.2rem; }
+section { padding: 4rem 2rem; }
+.section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.75rem; }
+.section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: var(--ink); letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+.section-sub { color: var(--muted); font-size: 1rem; max-width: 560px; }
+.section-head { max-width: 1100px; margin: 0 auto 3rem; }
+.tabs-wrap { max-width: 1100px; margin: 0 auto; }
+.tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.tab { padding: 0.6rem 1.4rem; border-radius: 100px; border: 1.5px solid var(--border); font-size: 0.875rem; font-weight: 500; font-family: inherit; cursor: pointer; background: white; color: var(--muted); transition: all 0.2s; }
+.tab.active { background: var(--blue); color: white; border-color: var(--blue); }
+.tab:hover:not(.active) { border-color: var(--blue-light); color: var(--blue-light); }
+.institute-panel { display: none; }
+.institute-panel.active { display: block; }
+.institute-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+.institute-info h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+.institute-info p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.tag { background: var(--blue-pale); color: var(--blue); font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.85rem; border-radius: 100px; }
+.institute-visual { background: var(--surface); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border); }
+.check-list { list-style: none; }
+.check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--muted); margin-bottom: 0.6rem; }
+.check-list li::before { content: "✓"; color: var(--blue-light); font-weight: 700; margin-top: 1px; flex-shrink: 0; }
+.panel-link { display: inline-block; margin-top: 0.75rem; font-size: 0.9rem; font-weight: 600; color: var(--blue-mid); }
+.features-bg { background: var(--surface); }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
+.feature-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+.feature-card:hover { box-shadow: 0 4px 24px rgba(26,58,107,0.1); }
+.feature-icon { width: 44px; height: 44px; background: var(--blue-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.3rem; }
+.feature-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
+.feature-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+.addon-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--blue); background: var(--blue-pale); padding: 0.15rem 0.5rem; border-radius: 6px; margin-left: 0.35rem; vertical-align: middle; }
+.feature-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+.smarter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; }
+.smarter-card { border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); background: white; }
+.smarter-card .before { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #e24b4a; margin-bottom: 0.5rem; }
+.smarter-card .after { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.5rem; }
+.smarter-card p { font-size: 0.875rem; color: var(--muted); }
+.smarter-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
+.arrow-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.5rem 0; }
+.personas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; }
+.persona-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
+.persona-avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; font-size: 1.4rem; }
+.persona-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
+.persona-card p { font-size: 0.78rem; color: var(--muted); }
+.steps { display: flex; flex-direction: column; gap: 2rem; max-width: 680px; margin: 0 auto; }
+.step { display: flex; gap: 1.25rem; align-items: flex-start; }
+.step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
+.step p { font-size: 0.875rem; color: var(--muted); }
+/* Phone screenshots */
+.phone-shot { display: block; width: 100%; max-width: 270px; height: auto; border-radius: 18px; box-shadow: 0 6px 24px rgba(26,58,107,0.12); border: 1px solid var(--border); background: white; }
+.phone-row { display: flex; gap: 0.75rem; justify-content: center; align-items: flex-start; }
+.phone-row figure { flex: 1 1 0; min-width: 0; max-width: 270px; }
+figure figcaption { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: 0.6rem; }
+/* Videos */
+.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+.video-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; text-align: center; }
+.video-card video { display: block; width: 100%; max-width: 320px; height: auto; margin: 0 auto 1rem; border-radius: 14px; background: var(--ink); }
+.video-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
+.video-card p { font-size: 0.85rem; color: var(--muted); }
+/* Gallery */
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+.gallery figure { display: flex; flex-direction: column; align-items: center; }
+/* Web app frame */
+.web-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+.browser-frame { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 24px rgba(26,58,107,0.1); }
+.browser-bar { display: flex; align-items: center; gap: 6px; padding: 0.55rem 0.8rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.browser-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d1d5db; display: inline-block; }
+.browser-bar span { margin-left: 0.6rem; font-size: 0.72rem; color: var(--muted); background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.1rem 0.6rem; }
+.browser-frame img { display: block; width: 100%; height: auto; }
+/* Landing links */
+.fit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
+.fit-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; text-decoration: none; color: var(--ink); display: block; }
+.fit-card:hover { border-color: var(--blue-light); }
+.fit-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--blue); }
+.fit-card p { font-size: 0.875rem; color: var(--muted); }
+/* FAQ */
+.faq { max-width: 760px; margin: 0 auto; }
+.faq details { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+.faq summary { cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--ink); font-size: 0.95rem; }
+.faq details p { margin-top: 0.6rem; font-size: 0.9rem; color: var(--muted); }
+.faq-more { text-align: center; margin-top: 1.25rem; font-size: 0.9rem; }
+.faq-more a { color: var(--blue-mid); font-weight: 600; }
+.cta-section { background: var(--blue); padding: 5rem 2rem; text-align: center; }
+.cta-section h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 1rem; letter-spacing: -0.5px; }
+.cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1rem; }
+.btn-white { background: white; color: var(--blue); padding: 0.9rem 2.2rem; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; display: inline-block; }
+.btn-white:hover { background: var(--blue-pale); }
+footer { background: var(--blue); border-top: 1px solid rgba(255,255,255,0.1); padding: 2.5rem 2rem; }
+.footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: white; margin-bottom: 1.25rem; }
+.footer-logo span { color: var(--blue-light); }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-bottom: 1.25rem; }
+.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.7); text-decoration: none; }
+.footer-links a:hover { color: white; }
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--blue-light); outline-offset: 2px; }
+@media (max-width: 700px) {
+nav a:not(.nav-cta) { display: none; }
+.institute-grid { grid-template-columns: 1fr; }
+.stats { gap: 1.5rem; }
+.web-strip { grid-template-columns: 1fr; }
+.feature-wide { grid-template-columns: 1fr; }
+.gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: 0.75rem; }
+.gallery figure { flex: 0 0 70%; scroll-snap-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .tab { transition: none; } }
+.prose { max-width: 760px; margin: 0 auto; }
+.prose h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; color: var(--ink); letter-spacing: -0.3px; margin: 2.25rem 0 0.6rem; }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 1.25rem 0 0.35rem; }
+.prose p { color: var(--muted); font-size: 0.98rem; margin-bottom: 0.9rem; }
+.prose .check-list { margin: 0.5rem 0 1rem; }
+.prose a { color: var(--blue-mid); font-weight: 600; }
+.landing-media { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start; max-width: 1100px; margin: 0 auto; }
+.landing-media .video-card { max-width: 360px; }
+.price-box { max-width: 760px; margin: 0 auto; background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
+.price-box .big { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blue); }
+.price-box p { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0; }
+.price-box a { color: var(--blue-mid); font-weight: 600; }
+@media (max-width: 700px) { .landing-media { grid-template-columns: 1fr; } .landing-media .video-card { margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<nav>
+<a href="https://instiq.in/" class="logo" style="margin-left:0;color:var(--blue);">Insti<span>Q</span></a>
+<div>
+<a href="index.html">Home</a>
+<a href="pricing.html">Pricing</a>
+<a href="contact.html">Contact</a>
+<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="nav-cta">Start free trial</a>
+</div>
+</nav>
+
+<header class="hero">
+<div class="hero-badge">Coaching class software</div>
+<h1>Coaching institute management app — batches, front desk, tests</h1>
+<p>InstiQ helps coaching institutes run courses and batches, turn walk-ins into admissions, give fee quotes, conduct tests and share recorded lectures with the right batch only.</p>
+<div class="hero-btns">
+<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="btn-primary">Start 14-day free trial</a>
+<a href="pricing.html" class="btn-secondary">See InstiQ pricing</a>
+</div>
+</header>
+
+<section>
+<div class="section-head">
+<div class="section-label">Watch</div>
+<h2 class="section-title">What is InstiQ? For coaching institutes</h2>
+<p class="section-sub">About 2 minutes, in English.</p>
+</div>
+<div class="landing-media">
+<div class="video-card">
+<video controls preload="none" playsinline poster="videos/what-is-instiq-coaching-poster.jpg" width="320" height="569">
+<source src="videos/what-is-instiq-coaching.mp4" type="video/mp4">
+</video>
+<h3>What is InstiQ? For coaching institutes</h3>
+</div>
+<div class="institute-visual">
+<div class="phone-row">
+<figure><img class="phone-shot" src="screens/front-desk-inquiries.jpg" width="270" height="450" loading="lazy" alt="Inquiries, walk-ins and follow-ups for a coaching institute"><figcaption>Front desk</figcaption></figure>
+<figure><img class="phone-shot" src="screens/fee-quote.jpg" width="270" height="200" loading="lazy" alt="Fee quote for a batch"><figcaption>Fee quotes</figcaption></figure>
+<figure><img class="phone-shot" src="screens/video-lectures.jpg" width="270" height="333" loading="lazy" alt="Recorded lectures shared with one batch"><figcaption>Video Lectures</figcaption></figure>
+</div>
+</div>
+</div>
+</section>
+
+<section class="features-bg">
+<div class="prose">
+<h2>Coaching class software built around courses and batches</h2>
+<p>Register as a coaching institute and InstiQ organises everything by courses and batches — attendance, tests, homework and notices all follow your batches. InstiQ runs on Android (Google Play) and on the web at app.instiq.in, and it is made in India, for Indian institutes.</p>
+
+<h2>Front desk: from inquiry to admission</h2>
+<p>Your receptionist gets a front desk built for coaching institutes:</p>
+<ul class="check-list">
+<li>Log walk-ins and inquiries in one place</li>
+<li>Give fee quotes per batch</li>
+<li>See follow-ups that are due and overdue</li>
+<li>Reactivate old inquiries</li>
+<li>Convert an inquiry into an admission</li>
+</ul>
+<p>Set fees per batch and keep fee records for every student.</p>
+
+<h2>Tests, homework and attendance</h2>
+<h3>Tests and results</h3>
+<p>Plan tests per batch with total and passing marks. Teachers enter marks, and students and parents see results and grades on their phone.</p>
+<h3>Homework and assignments</h3>
+<p>Set assignments with due dates. Students submit photos or files; teachers give feedback and grades. The class diary shows today's topic, class work and homework.</p>
+<h3>Batch-wise attendance</h3>
+<p>Teachers mark attendance batch-wise and subject-wise in a few taps — Present, Absent or Late — with reports by date.</p>
+
+<h2>Video Lectures (paid add-on)</h2>
+<p>Share recorded lectures with the right batch only. The student's name moves over the video, screenshots and screen recording are blocked on Android, and a lecture plays on one device at a time.</p>
+
+<h2>Keep students and parents informed</h2>
+<p>Push notices to students, parents and/or teachers, so exam changes and cancelled events reach them at once. Parents can follow several children with one account. Students and parents can also write to the institute through Messages.</p>
+
+<h2>One owner, several centres</h2>
+<p>An owner can run several institutes, and one person can belong to several institutes and switch in one tap. Teachers see today's timetable from faculty allocation, and staff attendance and leave are handled in the app.</p>
+
+<h2>Easy to start</h2>
+<p>Add a whole batch of students from one Excel sheet, with parent accounts linked automatically and checks before anything is saved. 26 short video guides inside the app explain every role in English and Hindi (कोचिंग मैनेजमेंट ऐप हिंदी में भी सीखें). See all features on the <a href="index.html">InstiQ home page</a>.</p>
+</div>
+</section>
+
+<section>
+<div class="section-head" style="max-width:760px;">
+<div class="section-label">Pricing</div>
+<h2 class="section-title">Coaching institute app pricing</h2>
+</div>
+<div class="price-box">
+<div class="big">₹1,499 <span style="font-size:1rem;font-weight:600;color:var(--muted);">a month</span></div>
+<p>Includes up to 150 students. Each extra student is ₹6 a month — for example, 300 students = ₹1,499 + 150 × ₹6 = ₹2,399 a month. Teachers, staff and parents are not counted, and every feature is included.</p>
+<p>Prices include all taxes. 14-day free trial with no card needed, no setup fee, cancel any time. Pay inside the app by UPI, card or net banking.</p>
+<p>Video Lectures add-on: ₹899 a month plus usage credit topped up from ₹100 (storage ₹3 per GB per month, streaming ₹1 per GB). <a href="pricing.html">See full InstiQ pricing</a>.</p>
+</div>
+</section>
+
+<section class="features-bg">
+<div class="section-head" style="max-width:760px;">
+<div class="section-label">FAQ</div>
+<h2 class="section-title">Coaching institute management app: common questions</h2>
+</div>
+<div class="faq">
+<details><summary>Can the front desk track inquiries and follow-ups?</summary><p>Yes. The front desk logs walk-ins and inquiries, gives fee quotes per batch, shows follow-ups due and overdue, and converts an inquiry into an admission.</p></details>
+<details><summary>Can I share recorded lectures with only one batch?</summary><p>Yes, with the Video Lectures add-on. Lectures go to the right batch only, the student&#x27;s name moves over the video, screenshots and screen recording are blocked on Android, and one device plays at a time.</p></details>
+<details><summary>How much do Video Lectures cost?</summary><p>₹899 a month, plus usage credit topped up from ₹100: storage is ₹3 per GB per month and streaming is ₹1 per GB.</p></details>
+<details><summary>Can one owner run several coaching centres?</summary><p>Yes. An owner can run several institutes, and one person can belong to several institutes and switch in one tap.</p></details>
+</div>
+</section>
+
+<section>
+<div class="section-head">
+<div class="section-label">Other institute types</div>
+<h2 class="section-title">Also on InstiQ</h2>
+</div>
+<div class="fit-grid">
+<a class="fit-card" href="school-management-software.html"><h3>School management software</h3><p>Classes and sections, class diary for parents, staff attendance and transport.</p></a>
+<a class="fit-card" href="college-erp-software.html"><h3>College ERP software</h3><p>Courses, semesters, faculty allocation, Excel bulk upload and results.</p></a>
+</div>
+</section>
+
+<section class="cta-section">
+<h2>Try InstiQ in your coaching institute free for 14 days</h2>
+<p>14-day free trial. No card needed. No setup fee.</p>
+<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="btn-white">Get InstiQ on Google Play</a>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-logo">Insti<span>Q</span></div>
+<div class="footer-links">
+<a href="school-management-software.html">School management software</a>
+<a href="coaching-institute-management-app.html">Coaching institute app</a>
+<a href="college-erp-software.html">College ERP</a>
+</div>
+<div class="footer-links">
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="terms.html">Terms &amp; Conditions</a>
+<a href="refund-policy.html">Cancellation &amp; Refunds</a>
+<a href="shipping-policy.html">Shipping Policy</a>
+<a href="pricing.html">Pricing</a>
+<a href="contact.html">Contact</a>
+<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq">Google Play</a>
+</div>
+<div class="footer-links">
+<a href="mailto:support@instiq.in">support@instiq.in</a>
+<a href="tel:+919821825779">+91 98218 25779</a>
+</div>
+<p class="footer-copy">&copy; 2026 InstiQ. All rights reserved. | instiq.in</p>
+</div>
+</footer>
+
+</body>
+</html>
