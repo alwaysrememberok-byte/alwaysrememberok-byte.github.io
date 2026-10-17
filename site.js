@@ -126,7 +126,9 @@
   var r = document.getElementById('students');
   if (r) {
     var sv = document.getElementById('sv'), pr = document.getElementById('price');
-    var calc = function () { var n = +r.value, p = 1499 + Math.max(0, n - 150) * 6; sv.textContent = n; pr.textContent = '₹' + p.toLocaleString('en-IN') + ' / month'; };
+    // Slabs (17 Oct 2026): 1–500 ₹10, 501–1,000 ₹5, above 1,000 ₹3 per student a month.
+    var slab = function (n) { return Math.min(n, 500) * 10 + Math.max(0, Math.min(n, 1000) - 500) * 5 + Math.max(0, n - 1000) * 3; };
+    var calc = function () { var n = +r.value, p = slab(n); sv.textContent = n.toLocaleString('en-IN'); pr.textContent = '₹' + p.toLocaleString('en-IN') + ' / month'; };
     r.addEventListener('input', calc); calc();
   }
 

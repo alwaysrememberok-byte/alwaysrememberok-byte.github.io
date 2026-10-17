@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://instiq.in/</loc><lastmod>2026-10-14</lastmod><priority>1.0</priority></url>
-  <url><loc>https://instiq.in/services.html</loc><lastmod>2026-10-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://instiq.in/work.html</loc><lastmod>2026-10-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://instiq.in/instiq.html</loc><lastmod>2026-10-14</lastmod><priority>0.9</priority></url>
-  <url><loc>https://instiq.in/about.html</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
-  <url><loc>https://instiq.in/contact.html</loc><lastmod>2026-10-14</lastmod><priority>0.8</priority></url>
-  <url><loc>https://instiq.in/pricing.html</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
-  <url><loc>https://instiq.in/school-management-software.html</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
-  <url><loc>https://instiq.in/coaching-institute-management-app.html</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
-  <url><loc>https://instiq.in/college-erp-software.html</loc><lastmod>2026-10-14</lastmod><priority>0.6</priority></url>
+  <url><loc>https://instiq.in/</loc><lastmod>2026-10-17</lastmod><priority>1.0</priority></url>
+  <url><loc>https://instiq.in/services.html</loc><lastmod>2026-10-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://instiq.in/work.html</loc><lastmod>2026-10-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://instiq.in/instiq.html</loc><lastmod>2026-10-17</lastmod><priority>0.9</priority></url>
+  <url><loc>https://instiq.in/about.html</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://instiq.in/contact.html</loc><lastmod>2026-10-17</lastmod><priority>0.8</priority></url>
+  <url><loc>https://instiq.in/pricing.html</loc><lastmod>2026-10-17</lastmod><priority>0.6</priority></url>
+  <url><loc>https://instiq.in/school-management-software.html</loc><lastmod>2026-10-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://instiq.in/coaching-institute-management-app.html</loc><lastmod>2026-10-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://instiq.in/college-erp-software.html</loc><lastmod>2026-10-17</lastmod><priority>0.7</priority></url>
+  <url><loc>https://instiq.in/school-erp-bhopal.html</loc><lastmod>2026-10-17</lastmod><priority>0.7</priority></url>
   <url><loc>https://instiq.in/privacy-policy.html</loc><lastmod>2026-10-14</lastmod><priority>0.3</priority></url>
   <url><loc>https://instiq.in/terms.html</loc><lastmod>2026-10-14</lastmod><priority>0.3</priority></url>
   <url><loc>https://instiq.in/refund-policy.html</loc><lastmod>2026-10-14</lastmod><priority>0.3</priority></url>

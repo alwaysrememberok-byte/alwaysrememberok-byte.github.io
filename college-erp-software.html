@@ -1,386 +1,148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-IN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>College ERP Software — Courses, Semesters, Faculty, Results</title>
-<meta name="description" content="College ERP software for India: courses, semesters, subjects, faculty allocation, Excel bulk upload, attendance and results. 14-day free trial.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College ERP Software for Indian Colleges | InstiQ</title>
+<meta name="description" content="College ERP for Indian colleges: courses, semesters and sections, faculty allocation, attendance, exams and results, staff attendance and a web dashboard. From ₹10 per student a month, free guided setup.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://instiq.in/college-erp-software.html">
+<meta name="theme-color" content="#0B1020">
+<link rel="icon" type="image/png" href="screens/instiq-logo.png">
+<link rel="apple-touch-icon" href="screens/instiq-logo.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="InstiQ">
-<meta property="og:title" content="College ERP Software — Courses, Semesters, Faculty, Results">
-<meta property="og:description" content="College ERP software for India: courses, semesters, subjects, faculty allocation, Excel bulk upload, attendance and results. 14-day free trial.">
+<meta property="og:site_name" content="InstiQ Solutions">
+<meta property="og:title" content="College ERP Software for Indian Colleges | InstiQ">
+<meta property="og:description" content="College ERP for Indian colleges: courses, semesters and sections, faculty allocation, attendance, exams and results, staff attendance and a web dashboard. From ₹10 per student a month, free guided setup.">
 <meta property="og:url" content="https://instiq.in/college-erp-software.html">
 <meta property="og:image" content="https://instiq.in/screens/web-school-dashboard.jpg">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="College ERP Software — Courses, Semesters, Faculty, Results">
-<meta name="twitter:description" content="College ERP software for India: courses, semesters, subjects, faculty allocation, Excel bulk upload, attendance and results. 14-day free trial.">
+<meta name="twitter:title" content="College ERP Software for Indian Colleges | InstiQ">
+<meta name="twitter:description" content="College ERP for Indian colleges: courses, semesters and sections, faculty allocation, attendance, exams and results, staff attendance and a web dashboard. From ₹10 per student a month, free guided setup.">
 <meta name="twitter:image" content="https://instiq.in/screens/web-school-dashboard.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css?v=20261017">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Does InstiQ support courses and semesters?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. When you register as a college, InstiQ sets up courses, semesters and subjects and uses those words everywhere in the app."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can we upload students and faculty from Excel?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Students, teachers, courses, subjects and faculty allocation can be added from one Excel sheet, checked before anything is saved, with parent accounts linked automatically."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can faculty see their own timetable?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Assign faculty to subjects and time slots, and each teacher sees today's timetable in the app."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is a college charged?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "₹1,499 a month includes up to 150 students, plus ₹6 a month for each extra student. Faculty, staff and parents are not counted. Prices include all taxes, and there is a 14-day free trial."
-      }
-    }
-  ]
-}
+{"@context":"https://schema.org","@type":"Organization","@id":"https://instiq.in/#org","name":"InstiQ Solutions","url":"https://instiq.in/","logo":"https://instiq.in/screens/instiq-logo.png","email":"support@instiq.in","telephone":"+91-98218-25779","description":"AI-powered mobile app, web portal and ERP development company from India.","areaServed":"IN","knowsAbout":["Mobile app development","Android app development","iOS app development","Web portal development","Custom ERP development","AI app development","UI/UX design"],"contactPoint":[{"@type":"ContactPoint","telephone":"+91-98218-25779","contactType":"sales","areaServed":"IN","availableLanguage":["English","Hindi"]}]}
 </script>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
---blue: #1A3A6B;
---blue-mid: #2356A0;
---blue-light: #4A90D9;
---blue-pale: #E8F0FB;
---gold: #F5A623;
---ink: #1a1a2e;
---muted: #6b7280;
---surface: #f4f7fc;
---white: #ffffff;
---border: rgba(0,0,0,0.08);
---radius: 12px;
---radius-lg: 20px;
-}
-html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; }
-nav { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); z-index: 100; }
-.logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--blue); letter-spacing: -0.5px; text-decoration: none; }
-.logo span { color: var(--blue-light); }
-nav a { font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-left: 1.5rem; }
-nav a:hover { color: var(--blue-light); }
-.nav-cta { background: var(--blue); color: white !important; padding: 0.5rem 1.2rem; border-radius: 8px; font-weight: 500; }
-.nav-cta:hover { background: var(--blue-mid) !important; }
-.hero { padding: 5rem 2rem 4rem; text-align: center; background: linear-gradient(160deg, #e8f0fb 0%, #ffffff 60%); }
-.hero-badge { display: inline-block; background: var(--blue-pale); color: var(--blue); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
-.hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: var(--ink); line-height: 1.15; letter-spacing: -1px; max-width: 780px; margin: 0 auto 1.25rem; }
-.hero h1 em { color: var(--blue-light); font-style: normal; }
-.hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 2.5rem; }
-.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.btn-primary { background: var(--blue); color: white; padding: 0.85rem 2rem; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 0.95rem; }
-.btn-primary:hover { background: var(--blue-mid); }
-.btn-secondary { background: white; color: var(--ink); padding: 0.85rem 2rem; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 0.95rem; border: 1.5px solid var(--border); }
-.btn-secondary:hover { border-color: var(--blue-light); color: var(--blue-light); }
-.stats { display: flex; justify-content: center; gap: 3rem; padding: 2.5rem 2rem; background: var(--blue); flex-wrap: wrap; }
-.stat { text-align: center; }
-.stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; color: white; }
-.stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-top: 0.2rem; }
-section { padding: 4rem 2rem; }
-.section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.75rem; }
-.section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; color: var(--ink); letter-spacing: -0.5px; margin-bottom: 0.75rem; }
-.section-sub { color: var(--muted); font-size: 1rem; max-width: 560px; }
-.section-head { max-width: 1100px; margin: 0 auto 3rem; }
-.tabs-wrap { max-width: 1100px; margin: 0 auto; }
-.tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
-.tab { padding: 0.6rem 1.4rem; border-radius: 100px; border: 1.5px solid var(--border); font-size: 0.875rem; font-weight: 500; font-family: inherit; cursor: pointer; background: white; color: var(--muted); transition: all 0.2s; }
-.tab.active { background: var(--blue); color: white; border-color: var(--blue); }
-.tab:hover:not(.active) { border-color: var(--blue-light); color: var(--blue-light); }
-.institute-panel { display: none; }
-.institute-panel.active { display: block; }
-.institute-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
-.institute-info h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
-.institute-info p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
-.tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-.tag { background: var(--blue-pale); color: var(--blue); font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.85rem; border-radius: 100px; }
-.institute-visual { background: var(--surface); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border); }
-.check-list { list-style: none; }
-.check-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--muted); margin-bottom: 0.6rem; }
-.check-list li::before { content: "✓"; color: var(--blue-light); font-weight: 700; margin-top: 1px; flex-shrink: 0; }
-.panel-link { display: inline-block; margin-top: 0.75rem; font-size: 0.9rem; font-weight: 600; color: var(--blue-mid); }
-.features-bg { background: var(--surface); }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
-.feature-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
-.feature-card:hover { box-shadow: 0 4px 24px rgba(26,58,107,0.1); }
-.feature-icon { width: 44px; height: 44px; background: var(--blue-pale); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.3rem; }
-.feature-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.5rem; }
-.feature-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
-.addon-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--blue); background: var(--blue-pale); padding: 0.15rem 0.5rem; border-radius: 6px; margin-left: 0.35rem; vertical-align: middle; }
-.feature-wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
-.smarter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; }
-.smarter-card { border-radius: var(--radius); padding: 1.5rem; border: 1px solid var(--border); background: white; }
-.smarter-card .before { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #e24b4a; margin-bottom: 0.5rem; }
-.smarter-card .after { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.5rem; }
-.smarter-card p { font-size: 0.875rem; color: var(--muted); }
-.smarter-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.35rem; }
-.arrow-row { display: flex; align-items: center; gap: 0.75rem; margin: 0.5rem 0; }
-.personas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; max-width: 1100px; margin: 0 auto; }
-.persona-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; text-align: center; }
-.persona-avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; font-size: 1.4rem; }
-.persona-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 0.3rem; }
-.persona-card p { font-size: 0.78rem; color: var(--muted); }
-.steps { display: flex; flex-direction: column; gap: 2rem; max-width: 680px; margin: 0 auto; }
-.step { display: flex; gap: 1.25rem; align-items: flex-start; }
-.step-num { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: white; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-.step h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
-.step p { font-size: 0.875rem; color: var(--muted); }
-/* Phone screenshots */
-.phone-shot { display: block; width: 100%; max-width: 270px; height: auto; border-radius: 18px; box-shadow: 0 6px 24px rgba(26,58,107,0.12); border: 1px solid var(--border); background: white; }
-.phone-row { display: flex; gap: 0.75rem; justify-content: center; align-items: flex-start; }
-.phone-row figure { flex: 1 1 0; min-width: 0; max-width: 270px; }
-figure figcaption { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: 0.6rem; }
-/* Videos */
-.video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-.video-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; text-align: center; }
-.video-card video { display: block; width: 100%; max-width: 320px; height: auto; margin: 0 auto 1rem; border-radius: 14px; background: var(--ink); }
-.video-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
-.video-card p { font-size: 0.85rem; color: var(--muted); }
-/* Gallery */
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-.gallery figure { display: flex; flex-direction: column; align-items: center; }
-/* Web app frame */
-.web-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-.browser-frame { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: 0 6px 24px rgba(26,58,107,0.1); }
-.browser-bar { display: flex; align-items: center; gap: 6px; padding: 0.55rem 0.8rem; background: var(--surface); border-bottom: 1px solid var(--border); }
-.browser-bar i { width: 9px; height: 9px; border-radius: 50%; background: #d1d5db; display: inline-block; }
-.browser-bar span { margin-left: 0.6rem; font-size: 0.72rem; color: var(--muted); background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.1rem 0.6rem; }
-.browser-frame img { display: block; width: 100%; height: auto; }
-/* Landing links */
-.fit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; max-width: 1100px; margin: 0 auto; }
-.fit-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; text-decoration: none; color: var(--ink); display: block; }
-.fit-card:hover { border-color: var(--blue-light); }
-.fit-card h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--blue); }
-.fit-card p { font-size: 0.875rem; color: var(--muted); }
-/* FAQ */
-.faq { max-width: 760px; margin: 0 auto; }
-.faq details { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
-.faq summary { cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--ink); font-size: 0.95rem; }
-.faq details p { margin-top: 0.6rem; font-size: 0.9rem; color: var(--muted); }
-.faq-more { text-align: center; margin-top: 1.25rem; font-size: 0.9rem; }
-.faq-more a { color: var(--blue-mid); font-weight: 600; }
-.cta-section { background: var(--blue); padding: 5rem 2rem; text-align: center; }
-.cta-section h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: white; margin-bottom: 1rem; letter-spacing: -0.5px; }
-.cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1rem; }
-.btn-white { background: white; color: var(--blue); padding: 0.9rem 2.2rem; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 1rem; display: inline-block; }
-.btn-white:hover { background: var(--blue-pale); }
-footer { background: var(--blue); border-top: 1px solid rgba(255,255,255,0.1); padding: 2.5rem 2rem; }
-.footer-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
-.footer-logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.3rem; color: white; margin-bottom: 1.25rem; }
-.footer-logo span { color: var(--blue-light); }
-.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-bottom: 1.25rem; }
-.footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.7); text-decoration: none; }
-.footer-links a:hover { color: white; }
-.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
-a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--blue-light); outline-offset: 2px; }
-@media (max-width: 700px) {
-nav a:not(.nav-cta) { display: none; }
-.institute-grid { grid-template-columns: 1fr; }
-.stats { gap: 1.5rem; }
-.web-strip { grid-template-columns: 1fr; }
-.feature-wide { grid-template-columns: 1fr; }
-.gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: 0.75rem; }
-.gallery figure { flex: 0 0 70%; scroll-snap-align: center; }
-}
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .tab { transition: none; } }
-.prose { max-width: 760px; margin: 0 auto; }
-.prose h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(1.3rem, 2.5vw, 1.7rem); font-weight: 700; color: var(--ink); letter-spacing: -0.3px; margin: 2.25rem 0 0.6rem; }
-.prose h2:first-child { margin-top: 0; }
-.prose h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); margin: 1.25rem 0 0.35rem; }
-.prose p { color: var(--muted); font-size: 0.98rem; margin-bottom: 0.9rem; }
-.prose .check-list { margin: 0.5rem 0 1rem; }
-.prose a { color: var(--blue-mid); font-weight: 600; }
-.landing-media { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start; max-width: 1100px; margin: 0 auto; }
-.landing-media .video-card { max-width: 360px; }
-.price-box { max-width: 760px; margin: 0 auto; background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; }
-.price-box .big { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2rem; font-weight: 800; color: var(--blue); }
-.price-box p { color: var(--muted); font-size: 0.95rem; margin: 0.5rem 0; }
-.price-box a { color: var(--blue-mid); font-weight: 600; }
-@media (max-width: 700px) { .landing-media { grid-template-columns: 1fr; } .landing-media .video-card { margin: 0 auto; } }
-</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "College ERP Software for Indian Colleges", "applicationCategory": "EducationalApplication", "operatingSystem": "Android, Web", "url": "https://instiq.in/college-erp-software.html", "inLanguage": ["en", "hi"], "publisher": {"@id": "https://instiq.in/#org"}, "offers": {"@type": "Offer", "price": "10", "priceCurrency": "INR", "description": "Per student per month: ₹10 for students 1–500, ₹5 for 501–1,000, ₹3 above 1,000. Transport included. 14-day free trial."}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does InstiQ handle semesters and multiple courses?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Courses, semesters and sections are set up your way, and every screen uses those words."}}, {"@type": "Question", "name": "How much does InstiQ cost?", "acceptedAnswer": {"@type": "Answer", "text": "You pay per student, each month: ₹10 for each of the first 500 students, ₹5 each for 501–1,000 and ₹3 each above 1,000 (500 students = ₹5,000 a month). Teachers, staff and parents are free, Transport is included, no setup fee, taxes included, and a 14-day free trial with every feature."}}, {"@type": "Question", "name": "How long does setup take, and who does it?", "acceptedAnswer": {"@type": "Answer", "text": "Most institutes are running within a day or two. Our team gives free, step-by-step setup support on a short call or screen share while you add your classes, teachers and students — with ready Excel templates for bulk upload. Your data stays with you."}}, {"@type": "Question", "name": "Is our data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your institute's data is kept confidential and stored securely. We never sell it or share it with anyone for their own use, and we follow India's data protection law (DPDP Act, 2023). Only your own staff, students and parents see what their role allows."}}, {"@type": "Question", "name": "Does it work on mobile and computer?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — Android app on Google Play and a web app at app.instiq.in for the office computer. An iPhone app is coming."}}]}</script>
 </head>
 <body>
-
-<nav>
-<a href="https://instiq.in/" class="logo" style="margin-left:0;color:var(--blue);">Insti<span>Q</span></a>
-<div>
-<a href="index.html">Home</a>
-<a href="pricing.html">Pricing</a>
-<a href="contact.html">Contact</a>
-<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="nav-cta">Start free trial</a>
-</div>
-</nav>
-
-<header class="hero">
-<div class="hero-badge">College ERP for India</div>
-<h1>College ERP software — courses, semesters, faculty, results</h1>
-<p>InstiQ gives colleges one academic ERP for courses, semesters and subjects, faculty allocation, subject-wise attendance, internal results and assignments — on Android and the web.</p>
-<div class="hero-btns">
-<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="btn-primary">Start 14-day free trial</a>
-<a href="pricing.html" class="btn-secondary">See InstiQ pricing</a>
-</div>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="InstiQ Solutions home"><img src="screens/instiq-logo.png" alt="InstiQ Solutions logo" width="38" height="38"><span>InstiQ Solutions<small>Apps · Portals · ERP · AI</small></span></a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="links" aria-label="Main">
+      <a href="services.html">Services</a>
+      <a href="work.html">Our Work</a>
+      <a href="instiq.html">InstiQ</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-glow" href="contact.html">Start your project</a>
+    </nav>
+  </div>
 </header>
-
-<section>
-<div class="section-head">
-<div class="section-label">Watch</div>
-<h2 class="section-title">What is InstiQ? For colleges</h2>
-<p class="section-sub">About 2 minutes, in English.</p>
-</div>
-<div class="landing-media">
-<div class="video-card">
-<video controls preload="none" playsinline poster="videos/what-is-instiq-college-poster.jpg" width="320" height="569">
-<source src="videos/what-is-instiq-college.mp4" type="video/mp4">
-</video>
-<h3>What is InstiQ? For colleges</h3>
-</div>
-<div class="institute-visual">
-<div class="phone-row">
-<figure><img class="phone-shot" src="screens/college-courses-semesters.jpg" width="270" height="425" loading="lazy" alt="Courses, semesters and subjects"><figcaption>College structure</figcaption></figure>
-<figure><img class="phone-shot" src="screens/bulk-upload-excel.jpg" width="270" height="325" loading="lazy" alt="48 students added with parent accounts linked"><figcaption>Excel bulk upload</figcaption></figure>
-<figure><img class="phone-shot" src="screens/faculty-allocation.jpg" width="270" height="258" loading="lazy" alt="Teacher&#x27;s subjects and time slots"><figcaption>Faculty allocation</figcaption></figure>
-</div>
-</div>
-</div>
-</section>
-
-<section class="features-bg">
-<div class="prose">
-<h2>An academic ERP shaped like your college</h2>
-<p>Register as a college and InstiQ sets up courses, semesters and subjects, and uses those words throughout the app. Owners, academic admins, faculty, students, parents and front desk staff each have their own screens. InstiQ works on Android (Google Play) and in the browser at app.instiq.in, and it is made in India, for Indian institutes.</p>
-
-<h2>Set up a whole semester from Excel</h2>
-<p>Bulk upload students, teachers, courses and subjects, and faculty allocation from one Excel sheet. Parent accounts are linked to students automatically, and InstiQ checks the sheet before anything is saved, so mistakes are caught first.</p>
-
-<h2>Faculty allocation and timetable</h2>
-<p>Assign faculty to subjects and time slots. Each teacher sees today's timetable as soon as they open the app.</p>
-
-<h2>Faculty attendance and leave</h2>
-<ul class="check-list">
-<li>Daily staff attendance: Present, Absent, Half day or Leave</li>
-<li>Faculty apply for leave in the app</li>
-<li>Admins approve leave with leave rules</li>
-<li>The admin sees which classes need a substitute</li>
-</ul>
-
-<h2>Attendance, results and assignments</h2>
-<h3>Subject-wise attendance</h3>
-<p>Faculty mark student attendance subject-wise in a few taps — Present, Absent or Late — with attendance reports and a Student ID on every record.</p>
-<h3>Internal exams and results</h3>
-<p>Plan exams with total and passing marks. Faculty enter marks, and students and parents see results and grades on their phone.</p>
-<h3>Assignments</h3>
-<p>Set assignments with due dates. Students submit photos or files, and faculty give feedback and grades.</p>
-
-<h2>Notices, events and messages</h2>
-<p>Push notices to students, parents and/or faculty. Keep a holidays calendar and run events that show who is coming. Students, parents and staff can write to the college through Messages.</p>
-
-<h2>Fees records and privacy</h2>
-<p>Set fees and keep fee records. New accounts are verified by email, data is kept per institute, and users can delete their account inside the app. Recorded Video Lectures are available as a paid add-on. See every feature on the <a href="index.html">InstiQ home page</a>.</p>
-</div>
-</section>
-
-<section class="features-bg">
-<div class="section-head">
-<div class="section-label">Web app</div>
-<h2 class="section-title">On the computer too</h2>
-<p class="section-sub">Use InstiQ in the browser at app.instiq.in as well as on your Android phone.</p>
-</div>
-<figure style="max-width:820px;margin:0 auto;">
-<div class="browser-frame"><div class="browser-bar"><i></i><i></i><i></i><span>app.instiq.in</span></div>
-<img src="screens/web-college-dashboard.jpg" width="1280" height="720" loading="lazy" alt="InstiQ college dashboard in a web browser"></div>
-<figcaption>College dashboard on the computer</figcaption>
-</figure>
+<main>
+<style>
+.ehero{padding:160px 0 90px;overflow:hidden}
+.ehero h1{color:#fff;font-size:clamp(2.1rem,4.6vw,3.5rem)}
+.etrio{display:flex;gap:16px;justify-content:center;align-items:flex-end}
+.etrio .phone{width:170px}.etrio .phone:nth-child(2){width:195px;transform:translateY(-18px)}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px;text-align:left}
+.feat .card{padding:24px}.feat h3{font-size:1.12rem;margin:0 0 6px}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;text-align:left}
+.promise .card{padding:22px}
+.price-strip{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center;background:var(--ink);color:#fff;border-radius:24px;padding:28px 30px;margin-top:10px}
+.price-strip b{font:700 2rem "Space Grotesk"}
+.vlink{display:inline-flex;align-items:center;gap:12px;margin-top:22px;color:#fff;font-weight:700;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:10px 14px;border-radius:14px;cursor:pointer;font:inherit}
+.modal{position:fixed;inset:0;z-index:90;background:rgba(5,8,20,.86);display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}.modal video{max-width:min(420px,92vw);max-height:86vh;border-radius:18px;background:#000}
+.modal button{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:0;background:#fff;font-size:1.4rem;cursor:pointer}
+@media(max-width:900px){.feat,.promise{grid-template-columns:1fr}.ehero .split{grid-template-columns:minmax(0,1fr)}.ehero .split>*{min-width:0}.etrio{order:-1;margin-top:30px;gap:10px}.etrio .phone{width:29%}.etrio .phone:nth-child(2){width:33%}}
+</style>
+<section class="ehero dark">
+  <div class="bg-anim" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div><div class="grid"></div><canvas class="net"></canvas></div>
+  <div class="wrap split" style="position:relative">
+    <div>
+      <span class="kicker rv">College ERP software</span>
+      <h1 class="rv d1">College ERP that follows your <span class="grad">courses and semesters.</span></h1>
+      <p class="lead rv d2" style="color:#AEB9E6">Courses, semesters, faculty, attendance, exams and results in one system — a web dashboard for the office and an app for faculty and students.</p>
+      <div class="rv d3" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px">
+        <a class="btn btn-glow" href="https://wa.me/919821825779?text=Hi%2C%20I%20would%20like%20a%20free%20demo%20of%20InstiQ%20%28college%20page%29." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 1-1 2.3s1 2.7 1.1 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.4z"/></svg> Book a free demo</a>
+        <a class="btn btn-line" href="pricing.html">See pricing</a>
+      </div>
+      <button class="vlink rv d3" type="button" data-video="videos/what-is-instiq-college.mp4" data-poster="videos/what-is-instiq-college-poster.jpg">▶ Watch: InstiQ for colleges (1 min)</button>
+    </div>
+    <div class="etrio rv d2"><div class="phone"><div class="scr"><img src="screens/college-courses-semesters.jpg" alt="InstiQ screen" loading="lazy"></div></div><div class="phone"><div class="scr"><img src="screens/faculty-allocation.jpg" alt="InstiQ screen" loading="lazy"></div></div><div class="phone"><div class="scr"><img src="screens/web-college-dashboard.jpg" alt="InstiQ screen" loading="lazy"></div></div></div>
+  </div>
 </section>
 
 <section>
-<div class="section-head" style="max-width:760px;">
-<div class="section-label">Pricing</div>
-<h2 class="section-title">College ERP pricing</h2>
-</div>
-<div class="price-box">
-<div class="big">₹1,499 <span style="font-size:1rem;font-weight:600;color:var(--muted);">a month</span></div>
-<p>Includes up to 150 students. Each extra student is ₹6 a month — for example, 300 students = ₹1,499 + 150 × ₹6 = ₹2,399 a month. Teachers, staff and parents are not counted, and every feature is included.</p>
-<p>Prices include all taxes. 14-day free trial with no card needed, no setup fee, cancel any time. Pay inside the app by UPI, card or net banking.</p>
-<p>Large colleges and annual pricing: write to support@instiq.in. <a href="pricing.html">See full InstiQ pricing</a>.</p>
-</div>
+  <div class="wrap center">
+    <span class="kicker rv">Everything in one app</span>
+    <h2 class="rv d1">What your institute gets</h2>
+    <div class="feat"><div class="card rv"><h3>Courses, semesters and sections</h3><p>InstiQ uses your college's words on every screen.</p></div><div class="card rv"><h3>Faculty allocation</h3><p>Assign faculty to subjects and time slots with clash checks.</p></div><div class="card rv"><h3>Attendance</h3><p>Subject-wise attendance in a few taps with reports by course and date.</p></div><div class="card rv"><h3>Exams and results</h3><p>Internal exams, marks and results for students on their phone.</p></div><div class="card rv"><h3>Staff attendance and leave</h3><p>Daily staff attendance, leave requests and approvals.</p></div><div class="card rv"><h3>Web dashboard</h3><p>The office works on the computer at app.instiq.in; faculty and students use the app.</p></div></div>
+  </div>
 </section>
 
-<section class="features-bg">
-<div class="section-head" style="max-width:760px;">
-<div class="section-label">FAQ</div>
-<h2 class="section-title">College ERP software: common questions</h2>
-</div>
-<div class="faq">
-<details><summary>Does InstiQ support courses and semesters?</summary><p>Yes. When you register as a college, InstiQ sets up courses, semesters and subjects and uses those words everywhere in the app.</p></details>
-<details><summary>Can we upload students and faculty from Excel?</summary><p>Yes. Students, teachers, courses, subjects and faculty allocation can be added from one Excel sheet, checked before anything is saved, with parent accounts linked automatically.</p></details>
-<details><summary>Can faculty see their own timetable?</summary><p>Yes. Assign faculty to subjects and time slots, and each teacher sees today&#x27;s timetable in the app.</p></details>
-<details><summary>How is a college charged?</summary><p>₹1,499 a month includes up to 150 students, plus ₹6 a month for each extra student. Faculty, staff and parents are not counted. Prices include all taxes, and there is a 14-day free trial.</p></details>
-</div>
+<section style="padding-top:0">
+  <div class="wrap center">
+    <span class="kicker rv">Our promise</span>
+    <h2 class="rv d1">Easy to start, safe to use</h2>
+    <div class="promise">
+      <div class="card rv"><h3>Free guided setup</h3><p>Our team guides you on a short call or screen share while you add your classes, teachers and students. Ready Excel templates make it fast.</p></div>
+      <div class="card rv d1"><h3>Your data stays yours</h3><p>Confidential and stored securely. We never sell or share it, and we follow India's DPDP Act, 2023.</p></div>
+      <div class="card rv d2"><h3>English and Hindi</h3><p>Parents switch the app to Hindi with one tap; video guides in Hindi and English.</p></div>
+    </div>
+    <div class="price-strip rv" style="margin-top:40px"><b>₹10</b><span>per student a month for the first 500 · ₹5 for 501–1,000 · ₹3 above 1,000 · Transport included · 14-day free trial</span>
+      <a class="btn btn-glow" href="https://wa.me/919821825779?text=Hi%2C%20I%20would%20like%20a%20free%20demo%20of%20InstiQ%20%28college%20page%29." target="_blank" rel="noopener">Book a free demo</a></div>
+  </div>
 </section>
 
 <section>
-<div class="section-head">
-<div class="section-label">Other institute types</div>
-<h2 class="section-title">Also on InstiQ</h2>
-</div>
-<div class="fit-grid">
-<a class="fit-card" href="school-management-software.html"><h3>School management software</h3><p>Classes and sections, class diary for parents, staff attendance and transport.</p></a>
-<a class="fit-card" href="coaching-institute-management-app.html"><h3>Coaching institute management app</h3><p>Batches, front desk inquiries, fee quotes, tests and Video Lectures.</p></a>
-</div>
+  <div class="wrap">
+    <div class="center"><span class="kicker rv">FAQ</span><h2 class="rv d1">Questions principals ask</h2></div>
+    <div class="faq"><details class="rv"><summary>Does InstiQ handle semesters and multiple courses?</summary><p>Yes. Courses, semesters and sections are set up your way, and every screen uses those words.</p></details><details class="rv"><summary>How much does InstiQ cost?</summary><p>You pay per student, each month: ₹10 for each of the first 500 students, ₹5 each for 501–1,000 and ₹3 each above 1,000 (500 students = ₹5,000 a month). Teachers, staff and parents are free, Transport is included, no setup fee, taxes included, and a 14-day free trial with every feature.</p></details><details class="rv"><summary>How long does setup take, and who does it?</summary><p>Most institutes are running within a day or two. Our team gives free, step-by-step setup support on a short call or screen share while you add your classes, teachers and students — with ready Excel templates for bulk upload. Your data stays with you.</p></details><details class="rv"><summary>Is our data safe?</summary><p>Yes. Your institute's data is kept confidential and stored securely. We never sell it or share it with anyone for their own use, and we follow India's data protection law (DPDP Act, 2023). Only your own staff, students and parents see what their role allows.</p></details><details class="rv"><summary>Does it work on mobile and computer?</summary><p>Yes — Android app on Google Play and a web app at app.instiq.in for the office computer. An iPhone app is coming.</p></details></div>
+    <p class="center" style="margin-top:30px">InstiQ for: <a href="school-management-software.html" style="color:var(--blue);font-weight:700">Schools</a> · <a href="coaching-institute-management-app.html" style="color:var(--blue);font-weight:700">Coaching</a> · <a href="college-erp-software.html" style="color:var(--blue);font-weight:700">Colleges</a> · <a href="school-erp-bhopal.html" style="color:var(--blue);font-weight:700">Bhopal & MP</a></p>
+  </div>
 </section>
 
-<section class="cta-section">
-<h2>Try InstiQ in your college free for 14 days</h2>
-<p>14-day free trial. No card needed. No setup fee.</p>
-<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq" class="btn-white">Get InstiQ on Google Play</a>
+<section style="padding:20px 0 100px">
+  <div class="wrap"><div class="cta rv">
+    <div class="bg-anim" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div><div class="grid"></div></div>
+    <div style="position:relative"><h2>See InstiQ <span class="grad">in 20 minutes.</span></h2><p>A free online demo for your institute — in Hindi or English.</p>
+    <div class="row"><a class="btn btn-glow" href="https://wa.me/919821825779?text=Hi%2C%20I%20would%20like%20a%20free%20demo%20of%20InstiQ%20%28college%20page%29." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 1-1 2.3s1 2.7 1.1 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.4z"/></svg> Book a free demo on WhatsApp</a><a class="btn btn-line" href="instiq.html">Explore InstiQ</a></div></div>
+  </div></div>
 </section>
-
+<div class="modal" id="vmodal" role="dialog" aria-modal="true" aria-label="Video"><button type="button" aria-label="Close">×</button><video controls playsinline preload="none"></video></div>
+<script>
+(function(){var m=document.getElementById('vmodal');if(!m)return;var v=m.querySelector('video');
+document.querySelectorAll('[data-video]').forEach(function(b){b.addEventListener('click',function(){v.poster=b.dataset.poster||'';v.src=b.dataset.video;m.classList.add('open');v.play().catch(function(){});});});
+function close(){v.pause();m.classList.remove('open');}
+m.querySelector('button').addEventListener('click',close);m.addEventListener('click',function(e){if(e.target===m)close();});})();
+</script>
+</main>
 <footer>
-<div class="footer-inner">
-<div class="footer-logo">Insti<span>Q</span></div>
-<div class="footer-links">
-<a href="school-management-software.html">School management software</a>
-<a href="coaching-institute-management-app.html">Coaching institute app</a>
-<a href="college-erp-software.html">College ERP</a>
-</div>
-<div class="footer-links">
-<a href="privacy-policy.html">Privacy Policy</a>
-<a href="terms.html">Terms &amp; Conditions</a>
-<a href="refund-policy.html">Cancellation &amp; Refunds</a>
-<a href="shipping-policy.html">Shipping Policy</a>
-<a href="pricing.html">Pricing</a>
-<a href="contact.html">Contact</a>
-<a href="https://play.google.com/store/apps/details?id=com.hbkr.instiq">Google Play</a>
-</div>
-<div class="footer-links">
-<a href="mailto:support@instiq.in">support@instiq.in</a>
-<a href="tel:+919821825779">+91 98218 25779</a>
-</div>
-<p class="footer-copy">&copy; 2026 InstiQ. All rights reserved. | instiq.in</p>
-</div>
+  <div class="bg-anim" aria-hidden="true"><div class="orb o1" style="opacity:.18"></div></div>
+  <div class="wrap" style="position:relative">
+    <div class="foot">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:16px"><img src="screens/instiq-logo.png" alt="" width="38" height="38"><span>InstiQ Solutions</span></a>
+        <p>We turn business ideas into live mobile apps, web portals and ERP systems — designed with care, built with AI, tested like your customers will use them.</p>
+        <a class="btn btn-wa" href="https://wa.me/919821825779?text=Hello%20InstiQ%20Solutions%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener" style="display:inline-flex;margin-top:8px"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 1-1 2.3s1 2.7 1.1 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.4z"/></svg>+91 98218 25779</a>
+      </div>
+      <div><h4>What we build</h4><a href="services.html#mobile">Mobile apps</a><a href="services.html#web">Web portals &amp; SaaS</a><a href="services.html#erp">ERP &amp; automation</a><a href="services.html#ai">AI features</a><a href="services.html#design">UI/UX design</a></div>
+      <div><h4>Company</h4><a href="work.html">Our work</a><a href="about.html">About us</a><a href="instiq.html">InstiQ for education</a><a href="school-management-software.html">School ERP</a><a href="coaching-institute-management-app.html">Coaching software</a><a href="college-erp-software.html">College ERP</a><a href="school-erp-bhopal.html">School ERP in Bhopal</a><a href="contact.html">Contact</a></div>
+      <div><h4>Get in touch</h4><a href="tel:+919821825779">Call +91 98218 25779</a><a href="https://wa.me/919821825779" target="_blank" rel="noopener">WhatsApp us</a><a href="mailto:support@instiq.in">support@instiq.in</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a></div>
+    </div>
+    <div class="legal"><span>© <span id="yr">2026</span> InstiQ Solutions. All rights reserved.</span><span>Made in India · Built with AI, crafted by people</span></div>
+  </div>
 </footer>
-
+<a class="wa-float" href="https://wa.me/919821825779?text=Hello%20InstiQ%20Solutions%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="Chat with InstiQ Solutions on WhatsApp"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 1-1 2.3s1 2.7 1.1 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.4z"/></svg></a>
+<script src="site.js?v=20261017"></script>
 </body>
 </html>
